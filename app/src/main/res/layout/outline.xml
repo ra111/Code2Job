@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+   >
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="150dp"
+    android:background="#eae7e7"
+    android:id="@+id/learn"
+    android:layout_marginHorizontal="20dp"
+    android:layout_marginVertical="10dp">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="serif-monospace"
+        android:text="What Will I Learn ?"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginVertical="10dp"
+
+        android:textAppearance="@style/TextAppearance.AppCompat.Headline"
+        android:id="@+id/textView7" />
+
+    <TextView
+        android:id="@+id/first"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/textView7"
+        android:layout_alignStart="@+id/textView7"
+        android:layout_below="@+id/textView7"
+        android:layout_marginHorizontal="10dp"
+        android:layout_marginLeft="21dp"
+        android:layout_marginStart="21dp"
+        android:text="First Point" />
+
+    <TextView
+        android:id="@+id/Second"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/first"
+        android:layout_alignBottom="@+id/first"
+        android:layout_alignEnd="@+id/textView7"
+        android:layout_alignRight="@+id/textView7"
+        android:layout_marginHorizontal="10dp"
+        android:text="Second Point" />
+
+    <TextView
+        android:id="@+id/textView14"
+        android:layout_width="wrap_content"
+
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/textView15"
+        android:layout_alignBottom="@+id/textView15"
+        android:layout_alignLeft="@+id/Second"
+        android:layout_alignStart="@+id/Second"
+        android:layout_marginHorizontal="10dp"
+        android:text="Third Point" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+
+        android:layout_alignLeft="@+id/first"
+        android:layout_alignParentBottom="true"
+        android:layout_alignStart="@+id/first"
+        android:layout_marginBottom="14dp"
+        android:text="Fourth Point"
+        android:id="@+id/textView15" />
+
+</RelativeLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/learn"
+        android:id="@+id/syllabus"
+        android:orientation="vertical"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginVertical="10dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="serif-monospace"
+            android:text="Course Syllabus"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:layout_marginHorizontal="20dp"
+            android:layout_marginVertical="10dp"/>
+    </LinearLayout>
+</RelativeLayout>

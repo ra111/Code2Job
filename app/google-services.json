@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "943701204118",
+    "firebase_url": "https://code2job-21d70.firebaseio.com",
+    "project_id": "code2job-21d70",
+    "storage_bucket": "code2job-21d70.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:943701204118:android:59b3f0278a6dc186",
+        "android_client_info": {
+          "package_name": "com.studyx.urgames.code2job"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "943701204118-jm9nth8erbh8vuu5pi4fsgn48ic3bi4a.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.studyx.urgames.code2job",
+            "certificate_hash": "fab6560d017b74207ae451fd60f1a302a65f4ad7"
+          }
+        },
+        {
+          "client_id": "943701204118-8qs7r3oc8b6f9jh21dqmc5hg9jla1juj.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBGi8Wq99AkHttQl177QxYhNRBE-Daw5uY"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "943701204118-8qs7r3oc8b6f9jh21dqmc5hg9jla1juj.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

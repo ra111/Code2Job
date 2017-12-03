@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.studyx.urgames.code2job.MainActivity">
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="88dp"
+        android:text="C2J"
+        android:textAppearance="@style/TextAppearance.AppCompat.Title" />
+
+    <Button
+        android:id="@+id/discover"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="#fff"
+        android:background="#09b4ef"
+        android:layout_below="@+id/textView"
+        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="100dp"
+        android:layout_marginTop="73dp"
+        android:text="Dicover More" />
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_alignParentBottom="true"
+    android:id="@+id/linearLayout">
+
+    <Button
+        android:id="@+id/register"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="1dp"
+        android:layout_weight="1"
+        android:background="#66000000"
+
+        android:fontFamily="serif-monospace"
+        android:lineSpacingExtra="8sp"
+        android:text="Register"
+        android:textColor="#fff"
+        android:textStyle="bold" />
+
+    <Button
+        android:id="@+id/signIn"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:background="#66000000"
+        android:fontFamily="serif-monospace"
+        android:text="Sign In"
+        android:textColor="#fff"
+        android:textStyle="bold"
+        android:typeface="serif" />
+</LinearLayout>
+</RelativeLayout>
