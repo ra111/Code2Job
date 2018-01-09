@@ -154,7 +154,7 @@ public class course extends menu {
 
                     @Override
                     public void onClick(View view) {
-                        Log.d("courses is", first);
+                      //  Log.d("courses is", first);
                         if (first.equals("text")) {
                             i = new Intent(view.getContext(), text.class);
                             i.putExtra("src", src);
