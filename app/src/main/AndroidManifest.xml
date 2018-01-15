@@ -23,6 +23,7 @@
         <activity android:name=".tips"/>
         <activity android:name=".syllabus"/>
         <activity android:name=".premium"/>
+        <activity android:name=".Faq"/>
     </application>
 
     <uses-permission android:name="android.permission.INTERNET" />
