@@ -9,25 +9,22 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-        <activity android:name=".register"/>
         <activity android:name=".menu"/>
-        <activity android:name=".login"/>
+        <activity android:name=".MainActivity">
+        <intent-filter>
+            <action android:name="android.intent.action.MAIN"/>
+            <category android:name="android.intent.category.LAUNCHER"/>
+        </intent-filter>
+        </activity>
         <activity android:name=".account"/>
-        <activity android:name=".course"/>
-        <activity android:name=".intro"/>
-        <activity android:name=".outline"/>
         <activity android:name=".vid"/>
         <activity android:name=".text"/>
-        <activity android:name=".discover"/>
-        <activity android:name=".handouts"/>
+        <activity android:name=".Formula"/>
+        <activity android:name=".tips"/>
+        <activity android:name=".syllabus"/>
+        <activity android:name=".premium"/>
     </application>
+
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
