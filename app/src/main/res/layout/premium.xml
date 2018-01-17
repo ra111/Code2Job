@@ -37,7 +37,7 @@
                 android:scaleType="fitXY"
 
 
-                android:src="@drawable/shortcuts"
+                android:src="@drawable/shortcut"
                 android:id="@+id/imageView34" />
 
 
@@ -82,7 +82,7 @@
                 android:layout_width="100dp"
                 android:layout_height="match_parent"
                 android:scaleType="fitXY"
-                android:src="@drawable/tipss"
+                android:src="@drawable/tipsp"
                 android:id="@+id/imageView35" />
 
 

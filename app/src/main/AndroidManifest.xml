@@ -16,6 +16,7 @@
             <category android:name="android.intent.category.LAUNCHER"/>
         </intent-filter>
         </activity>
+        <activity android:name=".course"/>
         <activity android:name=".account"/>
         <activity android:name=".vid"/>
         <activity android:name=".text"/>
