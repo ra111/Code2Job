@@ -43,13 +43,16 @@ public class Faq  extends Activity {
                 int height = LinearLayout.LayoutParams.WRAP_CONTENT;
                 boolean focusable = false;
                 final PopupWindow popupWindow = new PopupWindow(popupView, width, height, focusable);
+                popupWindow.setOutsideTouchable(false);
                 final TextView ques =(TextView) popupView.findViewById(R.id.popupTextQues);
                 final TextView ans=(TextView)popupView.findViewById(R.id.popupTextAns);
                 final Button close=(Button) popupView.findViewById(R.id.close_button);
+                close.bringToFront();
                 close.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
                         popupWindow.dismiss();
+                        popupWindow.setOutsideTouchable(true);
                     }
                 });
 

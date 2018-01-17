@@ -11,6 +11,7 @@
             xmlns:tools="http://schemas.android.com/tools"
         android:orientation="horizontal">
 
+
             <ImageButton
                 android:id="@+id/vid"
                 android:layout_width="90dp"
@@ -27,7 +28,7 @@
                 app:layout_constraintTop_toTopOf="parent"
                 app:srcCompat="@drawable/apple"
                 app:layout_constraintBottom_toTopOf="@+id/tips"
-                app:layout_constraintVertical_bias="0.0" />
+                app:layout_constraintVertical_bias="0.044" />
 
     <ImageButton
         android:id="@+id/formula"
@@ -54,7 +55,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:srcCompat="@drawable/tips" />
+        app:srcCompat="@drawable/tips_card" />
 
     <ImageButton
         android:id="@+id/course"

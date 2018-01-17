@@ -15,7 +15,7 @@ public class tips extends AppCompatActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.tips);
-        Faq=(Button)findViewById(R.id.faq_button);
+        Faq=(Button)findViewById(R.id.faq);
         Faq.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
