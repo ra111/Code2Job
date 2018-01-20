@@ -8,6 +8,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_alignParentLeft="true"
+    android:background="@color/table_back"
   >
 
     <LinearLayout
@@ -51,6 +52,7 @@
         android:layout_marginBottom="8dp"
         android:layout_marginTop="8dp"
         android:text="Course"
+        android:textColor="#ffffff"
         android:textAlignment="textStart"
         android:textSize="24sp"
         android:textStyle="bold"

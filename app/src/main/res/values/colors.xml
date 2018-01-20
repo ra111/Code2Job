@@ -5,4 +5,7 @@
     <color name="colorAccent">#FF4081</color>
     <color name="table">#3d455b</color>
     <color name="table_back">#687088</color>
+    <color name="dday_back">#e68a88</color>
+    <color name="dday_stroke">#b15b5b</color>
+    <color name="grey">#e1e2e1</color>
 </resources>

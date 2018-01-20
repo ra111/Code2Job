@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.studyx.urgames.code2job">
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
     <application
         android:allowBackup="true"
@@ -8,23 +10,37 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
+
         android:theme="@style/AppTheme">
-        <activity android:name=".menu"/>
-        <activity android:name=".MainActivity">
+        <activity android:name=".menu"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".MainActivity"
+            android:screenOrientation="portrait">
         <intent-filter>
             <action android:name="android.intent.action.MAIN"/>
             <category android:name="android.intent.category.LAUNCHER"/>
         </intent-filter>
         </activity>
-        <activity android:name=".course"/>
-        <activity android:name=".account"/>
-        <activity android:name=".vid"/>
-        <activity android:name=".text"/>
-        <activity android:name=".Formula"/>
-        <activity android:name=".tips"/>
-        <activity android:name=".syllabus"/>
-        <activity android:name=".premium"/>
-        <activity android:name=".Faq"/>
+        <activity android:name=".course"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".account"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".vid"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".Formula"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".tips"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".syllabus"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".premium"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".Faq"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".dday"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".imp_topics"
+            android:screenOrientation="portrait"/>
     </application>
 
     <uses-permission android:name="android.permission.INTERNET" />

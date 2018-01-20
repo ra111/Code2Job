@@ -4,9 +4,11 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.webkit.WebChromeClient;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
-import android.webkit.WebViewClient;
+import android.widget.FrameLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.google.firebase.auth.FirebaseAuth;
@@ -25,7 +27,11 @@ public class vid extends AppCompatActivity {
     public TextView previos, next,title,next_title,prev_title;
     public String  text, current;
     Intent i;
-
+    private MyWebChromeClient mWebChromeClient = null;
+    private View mCustomView;
+    private RelativeLayout mContentView;
+    private FrameLayout mCustomViewContainer;
+    private WebChromeClient.CustomViewCallback mCustomViewCallback;
     final FirebaseDatabase database = FirebaseDatabase.getInstance();
     final DatabaseReference mDatabase = database.getReference();
     final DatabaseReference CourseRef = database.getReference("Course");
@@ -152,19 +158,69 @@ public class vid extends AppCompatActivity {
     {
         String titles =frameVideo.substring(0,frameVideo.indexOf(','));
         String frame=frameVideo.substring(frameVideo.indexOf(',')+1,frameVideo.length());
+        String html = "<iframe class=\"youtube-player\" " + "style=\"border: 0; width: 100%; height: 96%;"
+                + "padding:0px; margin:0px\" " + "id=\"ytplayer\" type=\"text/html\" "
+                + "src=\"http://www.youtube.com/embed/" + frame
+                + "?modestbranding=1&theme=dark&autohide=2&showinfo=0&autoplay=1\fs=0\" frameborder=\"0\" "
+                + "allowfullscreen autobuffer " + "controls onclick=\"this.play()\">\n" + "</iframe>\n";
 
-        WebView displayYoutubeVideo = (WebView) findViewById(R.id.webView);
-        displayYoutubeVideo.setWebViewClient(new WebViewClient() {
-            @Override
-            public boolean shouldOverrideUrlLoading(WebView view, String url) {
-                return false;
-            }
-        });
+
+     WebView   displayYoutubeVideo = (WebView) findViewById(R.id.webView);
+        mWebChromeClient = new MyWebChromeClient();
+        displayYoutubeVideo.setWebChromeClient(mWebChromeClient);
        title.setText(titles);
         WebSettings webSettings = displayYoutubeVideo.getSettings();
         webSettings.setJavaScriptEnabled(true);
-        displayYoutubeVideo.loadData(frame, "text/html", "utf-8");
+        displayYoutubeVideo.loadData(html, "text/html", "utf-8");
+
     }
+    private class MyWebChromeClient extends WebChromeClient {
+        FrameLayout.LayoutParams LayoutParameters = new FrameLayout.LayoutParams(FrameLayout.LayoutParams.MATCH_PARENT,
+                FrameLayout.LayoutParams.MATCH_PARENT);
+
+        @Override
+        public void onShowCustomView(View view, CustomViewCallback callback) {
+            // if a view already exists then immediately terminate the new one
+            if (mCustomView != null) {
+                callback.onCustomViewHidden();
+                return;
+            }
+            WebView   displayYoutubeVideo = (WebView) findViewById(R.id.webView);
+            mContentView = (RelativeLayout) findViewById(R.id.rlvid);
+            mContentView.setVisibility(View.GONE);
+            mCustomViewContainer = new FrameLayout(vid.this);
+            mCustomViewContainer.setLayoutParams(LayoutParameters);
+            mCustomViewContainer.setBackgroundResource(android.R.color.black);
+            view.setLayoutParams(LayoutParameters);
+            mCustomViewContainer.addView(view);
+            mCustomView = view;
+            mCustomViewCallback = callback;
+            mCustomViewContainer.setVisibility(View.VISIBLE);
+            setContentView(mCustomViewContainer);
+        }
+
+        @Override
+        public void onHideCustomView() {
+            if (mCustomView == null) {
+                return;
+            } else {
+
+                // Hide the custom view.
+                mCustomView.setVisibility(View.GONE);
+                // Remove the custom view from its container.
+                mCustomViewContainer.removeView(mCustomView);
+                mCustomView = null;
+                mCustomViewContainer.setVisibility(View.GONE);
+                mCustomViewCallback.onCustomViewHidden();
+                // Show the content view.
+                mContentView.setVisibility(View.VISIBLE);
+                setContentView(mContentView);
+            }
+        }
+
+
+    }
+
 public void titles( String keys)
 
 {
