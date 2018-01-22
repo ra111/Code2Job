@@ -1,9 +1,7 @@
 package com.studyx.urgames.code2job;
 
-import android.content.Context;
 import android.os.Bundle;
-import android.view.LayoutInflater;
-import android.view.View;
+import android.support.v7.app.AppCompatActivity;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -19,7 +17,7 @@ import com.squareup.picasso.Picasso;
  * Created by rahula on 14/11/17.
  */
 
-public class account extends menu {
+public class account extends AppCompatActivity {
     private ImageView image;
 private TextView name,email,city,college,name11;
     @Override
@@ -27,29 +25,20 @@ private TextView name,email,city,college,name11;
         final FirebaseDatabase database = FirebaseDatabase.getInstance();
         super.onCreate(savedInstanceState);
         final DatabaseReference mDatabase=database.getReference();
-        LayoutInflater inflater = (LayoutInflater) this
-                .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        View contentView = inflater.inflate(R.layout.account, null, false);
-        mDrawerLayout.addView(contentView, 0);
+        setContentView(R.layout.account);
         image=(ImageView)findViewById(R.id.avtar);
         name=(TextView)findViewById(R.id.name);
         email=(TextView)findViewById(R.id.emai);
         name11=(TextView)findViewById(R.id.name12);
-        city=(TextView)findViewById(R.id.city);
-        college=(TextView)findViewById(R.id.college);
+
 
         Picasso.with(this).load(FirebaseAuth.getInstance().getCurrentUser().getPhotoUrl()).placeholder(R.drawable.common_google_signin_btn_icon_dark_normal_background).error(R.drawable.common_google_signin_btn_icon_dark_normal_background).into(image);
         mDatabase.child("users").child( FirebaseAuth.getInstance().getCurrentUser().getUid()).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 String name1=(String)dataSnapshot.child("name").getValue();
-                String college1=(String)dataSnapshot.child("college").getValue();
-                String city1=(String)dataSnapshot.child("city").getValue();
-
-                name.setText(name1);
-                name11.setText(name1);
-                college.setText(college1);
-                city.setText(city1);
+             name.setText(FirebaseAuth.getInstance().getCurrentUser().getDisplayName());
+             name11.setText(FirebaseAuth.getInstance().getCurrentUser().getDisplayName());
                 email.setText(FirebaseAuth.getInstance().getCurrentUser().getEmail());
 
 

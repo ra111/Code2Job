@@ -316,7 +316,7 @@ public class imp_topics extends AppCompatActivity implements ActivityCompat.OnRe
         }
 
         sb.append("]");
-        
+
     }
 
 }

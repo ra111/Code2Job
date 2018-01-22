@@ -1,11 +1,19 @@
 package com.studyx.urgames.code2job;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageButton;
+
+import com.firebase.ui.auth.AuthUI;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 
 /**
  * Created by rahula on 13/11/17.
@@ -60,5 +68,38 @@ public class menu extends AppCompatActivity {
                 startActivity(i);
             }
         });
+    }
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.overflow_menu, menu);
+        return true;
+    }
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.menu_facebook:
+                Uri uri = Uri.parse("https://www.facebook.com/groups/114673289208612/"); // missing 'http://' will cause crashed
+                Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+                startActivity(intent);
+                return true;
+            case R.id.menu_profile:
+              Intent i =new Intent(this,account.class);
+              startActivity(i);
+                return true;
+            case  R.id.menu_signout:
+               AuthUI.getInstance()
+                        .signOut(this)
+                        .addOnCompleteListener(new OnCompleteListener<Void>() {
+                            public void onComplete(@NonNull Task<Void> task) {
+                                // user is now signed out
+                                Intent i = new Intent(getApplicationContext(), MainActivity.class);
+                                startActivity(i);
+                                finish();
+                            }
+                        });
+                    return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
     }
     }
