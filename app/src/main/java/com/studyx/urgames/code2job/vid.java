@@ -1,9 +1,10 @@
 package com.studyx.urgames.code2job;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.view.ViewStub;
 import android.webkit.WebChromeClient;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
@@ -23,10 +24,11 @@ import com.google.firebase.database.ValueEventListener;
  * Created by rahula on 15/11/17.
  */
 
-public class vid extends AppCompatActivity {
+public class vid extends Activity {
     public TextView previos, next,title,next_title,prev_title;
     public String  text, current;
     Intent i;
+View importPanel;
     private MyWebChromeClient mWebChromeClient = null;
     private View mCustomView;
     private RelativeLayout mContentView;
@@ -41,6 +43,7 @@ public class vid extends AppCompatActivity {
         setContentView(R.layout.vid);
         title=(TextView)findViewById(R.id.textView10);
         next = (TextView) findViewById(R.id.next);
+      importPanel = ((ViewStub) findViewById(R.id.stub_import)).inflate();
         previos = (TextView) findViewById(R.id.previous);
         next_title=(TextView)findViewById(R.id.next_tittle);
         prev_title=(TextView)findViewById(R.id.prev_tittle);
@@ -170,6 +173,7 @@ public class vid extends AppCompatActivity {
        title.setText(titles);
         WebSettings webSettings = displayYoutubeVideo.getSettings();
         webSettings.setJavaScriptEnabled(true);
+        importPanel.setVisibility(View.GONE);
         displayYoutubeVideo.loadData(html, "text/html", "utf-8");
 
     }

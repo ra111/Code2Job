@@ -6,7 +6,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-
+    <ViewStub
+        android:id="@+id/stub_import"
+        android:inflatedId="@+id/panel_import"
+        android:layout="@layout/progress_overlay"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_gravity="center" />
 
     <TextView
         android:id="@+id/textView7"
@@ -33,7 +39,7 @@
         app:layout_constraintVertical_bias="0.0"
         auto:engine="MathJax"
         auto:text="When \\(a \\ne 0\\), there are two solutions to \\(ax^2 + bx + c = 0\\)
-        and they are $$x = {-b \\pm \\sqrt{b^2-4ac} \\over 2a}.$$"></io.github.kexanie.library.MathView>
+        and they are \\x = {-b \\pm \\sqrt{b^2-4ac} \\over 2a}.\\"></io.github.kexanie.library.MathView>
 
     <TextView
         android:id="@+id/textView8"

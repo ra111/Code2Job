@@ -27,12 +27,15 @@
         <activity android:name=".account"
             android:screenOrientation="portrait"/>
         <activity android:name=".vid"
+            android:theme="@android:style/Theme.NoTitleBar"
             android:screenOrientation="portrait"/>
         <activity android:name=".Formula"
             android:screenOrientation="portrait"/>
         <activity android:name=".tips"
+            android:theme="@android:style/Theme.NoTitleBar"
             android:screenOrientation="portrait"/>
         <activity android:name=".syllabus"
+            android:theme="@android:style/Theme.NoTitleBar"
             android:screenOrientation="portrait"/>
         <activity android:name=".premium"
             android:screenOrientation="portrait"/>

@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:gravity="center"
+    android:background="@drawable/animationlist"
 
     >
 
@@ -13,6 +14,7 @@
         android:id="@+id/card_view13"
         android:layout_width="329dp"
         android:layout_height="83dp"
+        app:cardBackgroundColor="#858585"
         android:clickable="true"
         app:cardCornerRadius="4dp"
         tools:ignore="MissingConstraints"
@@ -37,7 +39,7 @@
                 android:layout_height="match_parent"
                 android:scaleType="fitXY"
 
-
+android:background="#fff"
                 android:src="@drawable/verbal"
                 android:id="@+id/imageView14" />
 
@@ -47,6 +49,9 @@
                 android:layout_width="179dp"
                 android:layout_height="wrap_content"
                 android:text="VERBAL"
+                android:textAlignment="center"
+                android:textColor="#fff"
+                android:textStyle="bold"
                 android:layout_centerVertical="true"
                 android:layout_toRightOf="@+id/imageView14"
                 android:layout_toEndOf="@+id/imageView14"
@@ -63,6 +68,7 @@
         android:layout_height="83dp"
         android:clickable="true"
         app:cardCornerRadius="4dp"
+        app:cardBackgroundColor="#858585"
         tools:ignore="MissingConstraints"
         tools:layout_editor_absoluteX="16dp"
         tools:layout_editor_absoluteY="59dp"
@@ -95,6 +101,9 @@
                 android:layout_width="179dp"
                 android:layout_height="wrap_content"
                 android:text="LOGICAL"
+                android:textAlignment="center"
+                android:textColor="#fff"
+                android:textStyle="bold"
                 android:layout_centerVertical="true"
                 android:layout_toRightOf="@+id/imageView15"
                 android:layout_toEndOf="@+id/imageView15"
@@ -107,6 +116,7 @@
         android:layout_width="329dp"
         android:layout_height="83dp"
         android:clickable="true"
+        app:cardBackgroundColor="#858585"
         app:cardCornerRadius="4dp"
         tools:ignore="MissingConstraints"
         tools:layout_editor_absoluteX="16dp"
@@ -139,6 +149,9 @@
                 android:layout_height="wrap_content"
                 android:text="QUANTS"
                 android:layout_centerVertical="true"
+                android:textAlignment="center"
+                android:textColor="#fff"
+                android:textStyle="bold"
                 android:layout_toRightOf="@+id/imageView16"
                 android:layout_toEndOf="@+id/imageView16"
                 android:layout_marginLeft="35dp"

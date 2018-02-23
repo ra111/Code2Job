@@ -2,6 +2,8 @@ package com.studyx.urgames.code2job;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
+import android.view.ViewStub;
 
 import io.github.kexanie.library.MathView;
 
@@ -10,21 +12,23 @@ import io.github.kexanie.library.MathView;
  */
 
 public class Formula extends AppCompatActivity{
+    View importPanel;
     MathView formula_two;
     String tex = "This come from string. You can insert inline formula:" +
             " \\(ax^2 + bx + c = 0\\) " +
-            "or displayed formula: $$\\sum_{i=0}^n i^2 = \\frac{(n^2+n)(2n+1)}{6}$$";
+            "or displayed formula: \\sum_{i=0}^n i^2 = \\frac{(n^2+n)(2n+1)}{6}";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.formula );
+         importPanel = ((ViewStub) findViewById(R.id.stub_import)).inflate();
     }
 
     @Override
     protected void onResume() {
         super.onResume();
-
+        importPanel.setVisibility(View.GONE);
         formula_two = (MathView) findViewById(R.id.formula_two);
         formula_two.setText(tex);
     }
