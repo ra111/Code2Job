@@ -1,7 +1,11 @@
 package com.studyx.urgames.code2job;
 
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.AnimationDrawable;
+import android.graphics.drawable.ColorDrawable;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.widget.DrawerLayout;
@@ -9,7 +13,10 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.ImageButton;
+import android.widget.LinearLayout;
 
 import com.firebase.ui.auth.AuthUI;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -27,12 +34,26 @@ public class menu extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.menu);
 
+        LinearLayout constraintLayout = (LinearLayout) findViewById(R.id.mainContent);
+        AnimationDrawable animationDrawable = (AnimationDrawable) constraintLayout.getBackground();
+        getSupportActionBar().setBackgroundDrawable(
+                new ColorDrawable(Color.parseColor("#505050")));
 
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            Window window = getWindow();
+
+            window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+            window.setStatusBarColor(getResources().getColor(android.R.color.transparent));
+
+            window.setBackgroundDrawableResource(R.drawable.animationlist);
+        }
         Formula = (ImageButton) findViewById(R.id.formula);
         Vids = (ImageButton) findViewById(R.id.vid);
         Tips = (ImageButton) findViewById(R.id.tips);
         Syllabus = (ImageButton) findViewById(R.id.course);
         Premium=(ImageButton)findViewById(R.id.premium);
+
+
         Vids.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -40,6 +61,7 @@ public class menu extends AppCompatActivity {
                 startActivity(i);
             }
         });
+
         Formula.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

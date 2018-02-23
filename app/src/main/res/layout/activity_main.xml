@@ -3,7 +3,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:id="@id/relative"
     android:layout_height="match_parent"
+    android:background="@drawable/animationlist"
     tools:context="com.studyx.urgames.code2job.MainActivity">
 
     <TextView
@@ -14,6 +16,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="88dp"
         android:text="ELitmus A2J"
+        android:textColor="@color/grey"
         android:textAppearance="@style/TextAppearance.AppCompat.Title" />
 
     <LinearLayout

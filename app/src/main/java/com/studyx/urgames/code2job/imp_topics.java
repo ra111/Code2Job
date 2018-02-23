@@ -16,6 +16,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.ViewStub;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Toast;
@@ -123,11 +124,13 @@ public class imp_topics extends AppCompatActivity implements ActivityCompat.OnRe
 
         final FirebaseStorage storage = FirebaseStorage.getInstance();
         final StorageReference storageRef = storage.getReference("Elitmus.pdf");
+        final View importPanel = ((ViewStub) findViewById(R.id.stub_import)).inflate();
         storageRef.getFile(localFile).addOnSuccessListener(new OnSuccessListener<FileDownloadTask.TaskSnapshot>() {
             @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
             @Override
             public void onSuccess(FileDownloadTask.TaskSnapshot taskSnapshot) {
                 read(localFile);
+               importPanel.setVisibility(View.GONE);
                 // If there is a savedInstanceState (screen orientations, etc.), we restore the page index.
             }
         }).addOnFailureListener(new OnFailureListener() {
