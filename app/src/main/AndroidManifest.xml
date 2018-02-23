@@ -23,6 +23,7 @@
         </intent-filter>
         </activity>
         <activity android:name=".course"
+            android:theme="@android:style/Theme.NoTitleBar"
             android:screenOrientation="portrait"/>
         <activity android:name=".account"
             android:screenOrientation="portrait"/>
@@ -30,6 +31,7 @@
             android:theme="@android:style/Theme.NoTitleBar"
             android:screenOrientation="portrait"/>
         <activity android:name=".Formula"
+            android:theme="@android:style/Theme.NoTitleBar"
             android:screenOrientation="portrait"/>
         <activity android:name=".tips"
             android:theme="@android:style/Theme.NoTitleBar"

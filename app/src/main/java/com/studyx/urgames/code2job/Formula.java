@@ -1,7 +1,7 @@
 package com.studyx.urgames.code2job;
 
+import android.app.Activity;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.view.ViewStub;
 
@@ -11,7 +11,7 @@ import io.github.kexanie.library.MathView;
  * Created by rahula on 10/01/18.
  */
 
-public class Formula extends AppCompatActivity{
+public class Formula extends Activity {
     View importPanel;
     MathView formula_two;
     String tex = "This come from string. You can insert inline formula:" +

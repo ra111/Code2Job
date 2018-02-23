@@ -1,11 +1,11 @@
 package com.studyx.urgames.code2job;
 
+import android.app.Activity;
 import android.graphics.Color;
 import android.graphics.Typeface;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.RequiresApi;
-import android.support.v7.app.AppCompatActivity;
 import android.view.Display;
 import android.view.Gravity;
 import android.view.Window;
@@ -25,7 +25,8 @@ import java.util.ArrayList;
  * Created by rahula on 17/01/18.
  */
 
-public class course extends AppCompatActivity {
+public class course extends Activity {
+
      private String course;
      private  TextView Name;
      private String[] syllabus;
