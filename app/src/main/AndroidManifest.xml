@@ -44,6 +44,7 @@
         <activity android:name=".Faq"
             android:screenOrientation="portrait"/>
         <activity android:name=".dday"
+            android:theme="@android:style/Theme.NoTitleBar"
             android:screenOrientation="portrait"/>
         <activity android:name=".imp_topics"
             android:screenOrientation="portrait"/>

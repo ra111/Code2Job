@@ -15,6 +15,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "943701204118-mmaa08qr8h1lap64i60hi1l4d8fi1m41.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.studyx.urgames.code2job",
+            "certificate_hash": "2a1e4f8b898b31ee1950509eb1a898896c3f3833"
+          }
+        },
+        {
           "client_id": "943701204118-jm9nth8erbh8vuu5pi4fsgn48ic3bi4a.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {

@@ -3,6 +3,7 @@ package com.studyx.urgames.code2job;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewStub;
 import android.webkit.WebChromeClient;
@@ -235,6 +236,7 @@ public void titles( String keys)
 
             String s1 = dataSnapshot.getValue().toString();
              String next= s1.substring(0,s1.indexOf(','));
+             Log.d("NEXT IS",next);
              next_title.setText(next);
 
 
