@@ -11,12 +11,13 @@
         android:id="@+id/menu_facebook"
         android:orderInCategory="2"
         app:showAsAction="ifRoom"
-        android:icon="@drawable/facbook"
+        android:icon="@drawable/if_facebook"
         android:title=" Join Facebook Group"/>
     <item
         android:id="@+id/menu_signout"
         android:orderInCategory="3"
         app:showAsAction="ifRoom"
+
         android:icon="@drawable/if__logout_80971"
         android:title="LogOut"/>
 </menu>

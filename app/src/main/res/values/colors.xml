@@ -8,4 +8,5 @@
     <color name="dday_back">#e68a88</color>
     <color name="dday_stroke">#b15b5b</color>
     <color name="grey">#e1e2e1</color>
+    <color name="colorGrey">#e1e2e1</color>
 </resources>

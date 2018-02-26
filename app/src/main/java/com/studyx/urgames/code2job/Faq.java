@@ -1,10 +1,13 @@
 package com.studyx.urgames.code2job;
 
 import android.app.Activity;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -26,6 +29,14 @@ public class Faq  extends Activity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.faq);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            Window window = getWindow();
+
+            window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+            window.setStatusBarColor(getResources().getColor(android.R.color.transparent));
+
+            window.setBackgroundDrawableResource(R.drawable.animationlist);
+        }
         ArrayAdapter adapter =new ArrayAdapter<String>(this,R.layout.list,questions);
         ListView listView=(ListView)findViewById(R.id.question_list);
 
@@ -41,6 +52,7 @@ public class Faq  extends Activity {
                 RelativeLayout faq=(RelativeLayout) findViewById(R.id.faq);
                 int width = LinearLayout.LayoutParams.WRAP_CONTENT;
                 int height = LinearLayout.LayoutParams.WRAP_CONTENT;
+
                 boolean focusable = false;
                 final PopupWindow popupWindow = new PopupWindow(popupView, width, height, focusable);
                 popupWindow.setOutsideTouchable(false);

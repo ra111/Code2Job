@@ -16,7 +16,6 @@
         android:background="@drawable/roun_button"
         android:elevation="3dp"
         android:gravity="center_vertical|center_horizontal"
-        android:paddingTop="7dip"
         android:textColor="#fff"
         android:text="X"
         android:translationZ="1dp"

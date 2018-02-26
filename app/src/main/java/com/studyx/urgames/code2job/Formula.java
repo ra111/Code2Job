@@ -15,9 +15,10 @@ public class Formula extends Activity {
     View importPanel;
     MathView formula_two;
     String tex = "This come from string. You can insert inline formula:" +
-            " \\(ax^2 + bx + c = 0\\) " +
-            "or displayed formula: \\sum_{i=0}^n i^2 = \\frac{(n^2+n)(2n+1)}{6}";
+            " \\(\\color{white}{ax^2 + bx + c = 0}\\) " +
+                    "or displayed formula: $$\\(\\color{white}{sum_{i=0}^n i^2 }= \\frac{(n^2+n)(2n+1)}{6})\\)$$";
 
+//String tex="\\(\\color{white}{ax^2 + 7}\\)";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,5 +32,6 @@ public class Formula extends Activity {
         importPanel.setVisibility(View.GONE);
         formula_two = (MathView) findViewById(R.id.formula_two);
         formula_two.setText(tex);
+
     }
 }

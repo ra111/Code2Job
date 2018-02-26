@@ -30,6 +30,7 @@ public class vid extends Activity {
     public String  text, current;
     Intent i;
 View importPanel;
+RelativeLayout vidLayout;
     private MyWebChromeClient mWebChromeClient = null;
     private View mCustomView;
     private RelativeLayout mContentView;
@@ -44,7 +45,9 @@ View importPanel;
         setContentView(R.layout.vid);
         title=(TextView)findViewById(R.id.textView10);
         next = (TextView) findViewById(R.id.next);
+        vidLayout=(RelativeLayout)findViewById(R.id.vid);
       importPanel = ((ViewStub) findViewById(R.id.stub_import)).inflate();
+      vidLayout.setVisibility(View.GONE);
         previos = (TextView) findViewById(R.id.previous);
         next_title=(TextView)findViewById(R.id.next_tittle);
         prev_title=(TextView)findViewById(R.id.prev_tittle);
@@ -174,8 +177,10 @@ View importPanel;
        title.setText(titles);
         WebSettings webSettings = displayYoutubeVideo.getSettings();
         webSettings.setJavaScriptEnabled(true);
-        importPanel.setVisibility(View.GONE);
+
         displayYoutubeVideo.loadData(html, "text/html", "utf-8");
+        importPanel.setVisibility(View.GONE);
+        vidLayout.setVisibility(View.VISIBLE);
 
     }
     private class MyWebChromeClient extends WebChromeClient {
@@ -199,6 +204,7 @@ View importPanel;
             mCustomViewContainer.addView(view);
             mCustomView = view;
             mCustomViewCallback = callback;
+
             mCustomViewContainer.setVisibility(View.VISIBLE);
             setContentView(mCustomViewContainer);
         }

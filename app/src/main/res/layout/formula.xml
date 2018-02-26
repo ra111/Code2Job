@@ -34,22 +34,7 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <io.github.kexanie.library.MathView
-        android:id="@+id/formula_one"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:textColor="#fff"
-        android:layout_marginBottom="8dp"
-        android:layout_marginTop="28dp"
-        app:layout_constraintBottom_toTopOf="@+id/textView8"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView7"
-        app:layout_constraintVertical_bias="0.0"
-        auto:engine="MathJax"
-        auto:text="When \\(a \\ne 0\\), there are two solutions to \\(ax^2 + bx + c = 0\\)
-        and they are $$x = {-b \\pm \\sqrt{b^2-4ac} \\over 2a}.$$"></io.github.kexanie.library.MathView>
+
 
     <TextView
         android:id="@+id/textView8"
@@ -75,138 +60,17 @@
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
                 auto:engine="KaTeX"></io.github.kexanie.library.MathView>
-        <io.github.kexanie.library.MathView
-            android:id="@+id/formula_3"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:textColor="#fff"
-            android:layout_marginBottom="8dp"
-            android:layout_marginTop="28dp"
-            app:layout_constraintBottom_toTopOf="@+id/textView8"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView7"
-            app:layout_constraintVertical_bias="0.0"
-            auto:engine="MathJax"
-            auto:text="When \\(a \\ne 0\\), there are two solutions to \\(ax^2 + bx + c = 0\\)
-        and they are $$x = {-b \\pm \\sqrt{b^2-4ac} \\over 2a}.$$"></io.github.kexanie.library.MathView>
-        <io.github.kexanie.library.MathView
-            android:id="@+id/formula_o"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:textColor="#fff"
-            android:layout_marginBottom="8dp"
-            android:layout_marginTop="28dp"
-            app:layout_constraintBottom_toTopOf="@+id/textView8"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView7"
-            app:layout_constraintVertical_bias="0.0"
-            auto:engine="MathJax"
-            auto:text="When \\(a \\ne 0\\), there are two solutions to \\(ax^2 + bx + c = 0\\)
-        and they are $$x = {-b \\pm \\sqrt{b^2-4ac} \\over 2a}.$$">
-        </io.github.kexanie.library.MathView>
 
 
-            <io.github.kexanie.library.MathView
-                android:id="@+id/formula_n"
-                android:layout_width="match_parent"
-                android:layout_height="120dp"
-                android:layout_marginTop="456dp"
-
-                android:textColor="#fff"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView7"
-                auto:engine="MathJax"
-                auto:text="When \\(a \\ne 0\\), there are two solutions to \\(ax^2 + bx + c = 0\\)
-        and they are $$x = {-b \\pm \\sqrt{b^2-4ac} \\over 2a}.$$"></io.github.kexanie.library.MathView>
-
-            <io.github.kexanie.library.MathView
-        android:id="@+id/formula_n1"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:textColor="#fff"
-        android:layout_marginBottom="8dp"
-        android:layout_marginTop="28dp"
-        app:layout_constraintBottom_toTopOf="@+id/textView8"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView7"
-        app:layout_constraintVertical_bias="0.0"
-        auto:engine="MathJax"
-        auto:text="When \\(a \\ne 0\\), there are two solutions to \\(ax^2 + bx + c = 0\\)
-        and they are $$x = {-b \\pm \\sqrt{b^2-4ac} \\over 2a}.$$"></io.github.kexanie.library.MathView>    <io.github.kexanie.library.MathView
-        android:id="@+id/formula_on2e"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:textColor="#fff"
-        android:layout_marginBottom="8dp"
-        android:layout_marginTop="28dp"
-        app:layout_constraintBottom_toTopOf="@+id/textView8"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView7"
-        app:layout_constraintVertical_bias="0.0"
-        auto:engine="MathJax"
-        auto:text="When \\(a \\ne 0\\), there are two solutions to \\(ax^2 + bx + c = 0\\)
-        and they are $$x = {-b \\pm \\sqrt{b^2-4ac} \\over 2a}.$$"></io.github.kexanie.library.MathView>    <io.github.kexanie.library.MathView
-        android:id="@+id/formula_on3e"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:textColor="#fff"
-        android:layout_marginBottom="8dp"
-        android:layout_marginTop="28dp"
-        app:layout_constraintBottom_toTopOf="@+id/textView8"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView7"
-        app:layout_constraintVertical_bias="0.0"
-        auto:engine="MathJax"
-        auto:text="When \\(a \\ne 0\\), there are two solutions to \\(ax^2 + bx + c = 0\\)
-        and they are $$x = {-b \\pm \\sqrt{b^2-4ac} \\over 2a}.$$"></io.github.kexanie.library.MathView>    <io.github.kexanie.library.MathView
-        android:id="@+id/formula_on4e"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:textColor="#fff"
-        android:layout_marginBottom="8dp"
-        android:layout_marginTop="28dp"
-        app:layout_constraintBottom_toTopOf="@+id/textView8"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView7"
-        app:layout_constraintVertical_bias="0.0"
-        auto:engine="MathJax"
-        auto:text="When \\(a \\ne 0\\), there are two solutions to \\(ax^2 + bx + c = 0\\)
-        and they are $$x = {-b \\pm \\sqrt{b^2-4ac} \\over 2a}.$$"></io.github.kexanie.library.MathView>    <io.github.kexanie.library.MathView
-        android:id="@+id/formula_one1"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:textColor="#fff"
-        android:layout_marginBottom="8dp"
-        android:layout_marginTop="28dp"
-        app:layout_constraintBottom_toTopOf="@+id/textView8"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView7"
-        app:layout_constraintVertical_bias="0.0"
-        auto:engine="MathJax"
-        auto:text="When \\(a \\ne 0\\), there are two solutions to \\(ax^2 + bx + c = 0\\)
-        and they are $$x = {-b \\pm \\sqrt{b^2-4ac} \\over 2a}.$$"></io.github.kexanie.library.MathView>
 
             <io.github.kexanie.library.MathView
                 android:id="@+id/formula_w22one"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
+                android:textColor="@color/colorGrey"
                 android:layout_marginBottom="8dp"
                 android:layout_marginTop="28dp"
-                android:textColor="#fff"
+
                 app:layout_constraintBottom_toTopOf="@+id/textView8"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintLeft_toLeftOf="parent"
@@ -214,8 +78,8 @@
                 app:layout_constraintTop_toBottomOf="@+id/textView7"
                 app:layout_constraintVertical_bias="1.0"
                 auto:engine="MathJax"
-                auto:text="When \\(a \\ne 0\\), there are two solutions to \\(ax^2 + bx + c = 0\\)
-        and they are $$x = {-b \\pm \\sqrt{b^2-4ac} \\over 2a}.$$"></io.github.kexanie.library.MathView>
+                auto:text="\\(\\color{Gray}{When a \\ne 0\\, there are two solutions to \\(ax^2 + bx + c = 0\\)
+    and they are $$x = {-b \\pm \\sqrt{b^2-4ac} \\over 2a}.$$}\\"></io.github.kexanie.library.MathView>
 
         </android.support.constraint.ConstraintLayout>
     </ScrollView>

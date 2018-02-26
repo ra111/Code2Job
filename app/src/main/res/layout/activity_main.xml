@@ -15,7 +15,7 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="88dp"
-        android:text="ELitmus A2J"
+        android:text="Elitmus A-z"
         android:textColor="@color/grey"
         android:textAppearance="@style/TextAppearance.AppCompat.Title" />
 

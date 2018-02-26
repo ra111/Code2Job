@@ -1,5 +1,6 @@
 package com.studyx.urgames.code2job;
 
+import android.app.Activity;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.Matrix;
@@ -12,7 +13,6 @@ import android.os.ParcelFileDescriptor;
 import android.support.annotation.NonNull;
 import android.support.annotation.RequiresApi;
 import android.support.v4.app.ActivityCompat;
-import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
@@ -35,7 +35,7 @@ import java.io.IOException;
  * Created by rahula on 20/01/18.
  */
 
-public class imp_topics extends AppCompatActivity implements ActivityCompat.OnRequestPermissionsResultCallback, View.OnTouchListener {
+public class imp_topics extends Activity implements ActivityCompat.OnRequestPermissionsResultCallback, View.OnTouchListener {
 
     private static final int REQUEST_WRITE_PERMISSION = 786;
     ImageView pdfView;

@@ -23,8 +23,9 @@
         </intent-filter>
         </activity>
         <activity android:name=".course"
+            android:screenOrientation="portrait"
             android:theme="@android:style/Theme.NoTitleBar"
-            android:screenOrientation="portrait"/>
+           />
         <activity android:name=".account"
             android:screenOrientation="portrait"/>
         <activity android:name=".vid"
@@ -47,6 +48,7 @@
             android:theme="@android:style/Theme.NoTitleBar"
             android:screenOrientation="portrait"/>
         <activity android:name=".imp_topics"
+            android:theme="@android:style/Theme.NoTitleBar"
             android:screenOrientation="portrait"/>
     </application>
 
