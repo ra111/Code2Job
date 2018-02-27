@@ -10,6 +10,13 @@
     android:layout_alignParentLeft="true"
     android:background="@drawable/animationlist"
   >
+    <ViewStub
+        android:id="@+id/stub_import"
+        android:inflatedId="@+id/panel_import"
+        android:layout="@layout/progress_overlay"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_gravity="center" />
 
     <LinearLayout
         android:id="@+id/scrollView1"

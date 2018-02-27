@@ -1,15 +1,24 @@
 package com.studyx.urgames.code2job;
 
-import android.app.Activity;
+import android.app.ActionBar;
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.Typeface;
+import android.graphics.drawable.ColorDrawable;
+import android.os.Build;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.View;
 import android.view.ViewStub;
+import android.view.Window;
+import android.view.WindowManager;
 import android.webkit.WebChromeClient;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.widget.FrameLayout;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -25,12 +34,13 @@ import com.google.firebase.database.ValueEventListener;
  * Created by rahula on 15/11/17.
  */
 
-public class vid extends Activity {
+public class vid extends AppCompatActivity {
     public TextView previos, next,title,next_title,prev_title;
     public String  text, current;
     Intent i;
 View importPanel;
-RelativeLayout vidLayout;
+    TextView tv;
+LinearLayout vidLayout;
     private MyWebChromeClient mWebChromeClient = null;
     private View mCustomView;
     private RelativeLayout mContentView;
@@ -43,9 +53,50 @@ RelativeLayout vidLayout;
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.vid);
-        title=(TextView)findViewById(R.id.textView10);
+        getSupportActionBar().setBackgroundDrawable(
+                new ColorDrawable(Color.parseColor("#505050")));
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            Window window = getWindow();
+
+            window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+            window.setStatusBarColor(getResources().getColor(android.R.color.transparent));
+
+            window.setBackgroundDrawableResource(R.drawable.animationlist);
+        }
+        android.support.v7.app.ActionBar ab = getSupportActionBar();
+
+        // Create a TextView programmatically.
+         tv = new TextView(getApplicationContext());
+
+        // Create a LayoutParams for TextView
+        RelativeLayout.LayoutParams lp = new RelativeLayout.LayoutParams(
+                RelativeLayout.LayoutParams.MATCH_PARENT, // Width of TextView
+                RelativeLayout.LayoutParams.WRAP_CONTENT); // Height of TextView
+
+        // Apply the layout parameters to TextView widget
+        tv.setLayoutParams(lp);
+
+        // Set text to display in TextView
+        tv.setText(ab.getTitle());
+
+        // Set the text color of TextView
+        tv.setTextColor(Color.WHITE);
+tv.setTextSize(20.0f);
+        Typeface boldTypeface = Typeface.defaultFromStyle(Typeface.BOLD);
+
+        tv.setTypeface(boldTypeface);
+
+        // Set TextView text alignment to center
+        tv.setGravity(Gravity.CENTER);
+
+        // Set the ActionBar display option
+        ab.setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
+
+        // Finally, set the newly created TextView as ActionBar custom view
+        ab.setCustomView(tv);
         next = (TextView) findViewById(R.id.next);
-        vidLayout=(RelativeLayout)findViewById(R.id.vid);
+        vidLayout=(LinearLayout)findViewById(R.id.vid);
       importPanel = ((ViewStub) findViewById(R.id.stub_import)).inflate();
       vidLayout.setVisibility(View.GONE);
         previos = (TextView) findViewById(R.id.previous);
@@ -56,7 +107,13 @@ RelativeLayout vidLayout;
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 current = dataSnapshot.getValue(String.class);
-
+if(current=="1")
+{
+    previos.setVisibility(View.GONE);
+}
+else{
+    previos.setVisibility(View.VISIBLE);
+}
                 Vid(current);
 
             }
@@ -165,16 +222,17 @@ RelativeLayout vidLayout;
     {
         String titles =frameVideo.substring(0,frameVideo.indexOf(','));
         String frame=frameVideo.substring(frameVideo.indexOf(',')+1,frameVideo.length());
-        String html = "<iframe class=\"youtube-player\" " + "style=\"border: 0; width: 100%; height: 96%;"
+        String html = "<iframe class=\"youtube-player\" " + "style=\"border: 0; width: 100%; height: 100%;"
                 + "padding:0px; margin:0px\" " + "id=\"ytplayer\" type=\"text/html\" "
                 + "src=\"http://www.youtube.com/embed/" + frame
                 + "?modestbranding=1&showinfo=0&fs=0\" frameborder=\"0\" " + "controls onclick=\"this.play()\">\n" + "</iframe>\n";
 
 
      WebView   displayYoutubeVideo = (WebView) findViewById(R.id.webView);
+
         mWebChromeClient = new MyWebChromeClient();
         displayYoutubeVideo.setWebChromeClient(mWebChromeClient);
-       title.setText(titles);
+       tv.setText(titles);
         WebSettings webSettings = displayYoutubeVideo.getSettings();
         webSettings.setJavaScriptEnabled(true);
 

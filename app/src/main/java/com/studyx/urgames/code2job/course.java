@@ -9,6 +9,8 @@ import android.support.annotation.RequiresApi;
 import android.view.Display;
 import android.view.Gravity;
 import android.view.View;
+import android.view.ViewStub;
+import android.widget.LinearLayout;
 import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
@@ -30,11 +32,16 @@ public class course extends Activity {
      private String course;
      private  TextView Name;
      private String[] syllabus;
+     LinearLayout Table;
+     View importPanel;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.course);
         Name=findViewById(R.id.tvcourse);
+        Table=findViewById(R.id.scrollView1);
+        importPanel = ((ViewStub) findViewById(R.id.stub_import)).inflate();
+        Table.setVisibility(View.GONE);
         Bundle extras = getIntent().getExtras();
         course= extras.getString("course");
 
@@ -154,6 +161,8 @@ t4v.setTextAlignment(View.TEXT_ALIGNMENT_CENTER);
    public void data(String course){
       final FirebaseDatabase database = FirebaseDatabase.getInstance();
       DatabaseReference ref = database.getReference("Syllabus");
+       importPanel.setVisibility(View.GONE);
+       Table.setVisibility(View.VISIBLE);
       ref.orderByKey().equalTo(course).addChildEventListener(new ChildEventListener() {
           @Override
           public void onChildAdded(DataSnapshot dataSnapshot, String s) {
