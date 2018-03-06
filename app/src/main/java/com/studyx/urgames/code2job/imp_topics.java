@@ -181,6 +181,7 @@ public class imp_topics extends Activity implements ActivityCompat.OnRequestPerm
         if (null != currentPage) {
             currentPage.close();
         }
+
         pdfRenderer.close();
 
     }

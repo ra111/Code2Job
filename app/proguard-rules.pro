@@ -18,3 +18,10 @@
 # If you keep the line number information, uncomment this to
 # hide the original source file name.
 #-renamesourcefileattribute SourceFile
+ -dontwarn com.github.mikephil.charting.data.realm.**
+  -dontwarn com.squareup.okhttp.**
+  -dontwarn  com.madrobot.beans.**
+-dontwarn java.beans.**
+-dontwarn  net.minidev.json.**
+-dontwarn sun.misc.BASE64Encoder
+-dontwarn org.cheffo.jeplite.**

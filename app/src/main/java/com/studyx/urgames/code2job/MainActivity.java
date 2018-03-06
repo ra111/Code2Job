@@ -11,8 +11,10 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.util.Log;
 import android.view.View;
+import android.view.ViewStub;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
 
@@ -45,12 +47,14 @@ public class MainActivity extends Activity {
     private GoogleSignInClient mGoogleSignInClient;
     private SignInButton google_signIn;
     private DatabaseReference mDatabase;
+    LinearLayout button;
+    View importPanel;
     @Override
     protected void onCreate(Bundle savedInstanceState)  {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        RelativeLayout linearLayout = (RelativeLayout) findViewById(R.id.relative);
+        button=(LinearLayout)findViewById(R.id.signIn);
+        final RelativeLayout linearLayout = (RelativeLayout) findViewById(R.id.relative);
         AnimationDrawable animationDrawable = (AnimationDrawable) linearLayout.getBackground();
         animationDrawable.setEnterFadeDuration(1000);
             animationDrawable.setExitFadeDuration(1500);
@@ -77,6 +81,8 @@ public class MainActivity extends Activity {
         google_signIn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                importPanel = ((ViewStub) findViewById(R.id.stub_import)).inflate();
+              button.setVisibility(View.GONE);
                 ConnectivityManager connectivityManager
                         = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
                 NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
@@ -120,6 +126,8 @@ public class MainActivity extends Activity {
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
+                        importPanel.setVisibility(View.GONE);
+                        button.setVisibility(View.VISIBLE);
                         if (task.isSuccessful()) {
 
                             // Sign in success, update UI with the signed-in user's information

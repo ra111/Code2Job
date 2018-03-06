@@ -1,20 +1,35 @@
 package com.studyx.urgames.code2job;
 
-import android.app.Activity;
+import android.app.ActionBar;
 import android.graphics.Color;
 import android.graphics.Typeface;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Build;
 import android.os.Bundle;
-import android.support.annotation.RequiresApi;
-import android.view.Display;
+import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
 import android.view.ViewStub;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.LinearLayout;
-import android.widget.TableLayout;
-import android.widget.TableRow;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.github.mikephil.charting.charts.BarChart;
+import com.github.mikephil.charting.charts.HorizontalBarChart;
+import com.github.mikephil.charting.charts.PieChart;
+import com.github.mikephil.charting.data.BarData;
+import com.github.mikephil.charting.data.BarDataSet;
+import com.github.mikephil.charting.data.BarEntry;
+import com.github.mikephil.charting.data.Entry;
+import com.github.mikephil.charting.data.PieData;
+import com.github.mikephil.charting.data.PieDataSet;
+import com.github.mikephil.charting.formatter.PercentFormatter;
+import com.github.mikephil.charting.highlight.Highlight;
+import com.github.mikephil.charting.listener.OnChartValueSelectedListener;
+import com.github.mikephil.charting.utils.ColorTemplate;
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -27,10 +42,15 @@ import java.util.ArrayList;
  * Created by rahula on 17/01/18.
  */
 
-public class course extends Activity {
+public class course extends AppCompatActivity implements OnChartValueSelectedListener {
 
-     private String course;
-     private  TextView Name;
+     private String course;PieChart pieChart;
+     private  TextView tv;
+    ArrayList<String> labels = new ArrayList<String>();
+    ArrayList<BarEntry> bargroup1 = new ArrayList<>();
+    BarChart barChart;
+    ArrayList<Entry> yvalues = new ArrayList<Entry>();
+    ArrayList<String> xVals = new ArrayList<String>();
      private String[] syllabus;
      LinearLayout Table;
      View importPanel;
@@ -38,131 +58,99 @@ public class course extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.course);
-        Name=findViewById(R.id.tvcourse);
-        Table=findViewById(R.id.scrollView1);
+        pieChart = (PieChart) findViewById(R.id.piechart);
+         barChart = (HorizontalBarChart) findViewById(R.id.barchart);
+
         importPanel = ((ViewStub) findViewById(R.id.stub_import)).inflate();
-        Table.setVisibility(View.GONE);
+
         Bundle extras = getIntent().getExtras();
         course= extras.getString("course");
+        getSupportActionBar().setBackgroundDrawable(
+                new ColorDrawable(Color.parseColor("#505050")));
 
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            Window window = getWindow();
+
+            window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+            window.setStatusBarColor(getResources().getColor(android.R.color.transparent));
+
+            window.setBackgroundDrawableResource(R.drawable.animationlist);
+        }
+        android.support.v7.app.ActionBar ab = getSupportActionBar();
+
+        // Create a TextView programmatically.
+        tv = new TextView(getApplicationContext());
+
+        // Create a LayoutParams for TextView
+        RelativeLayout.LayoutParams lp = new RelativeLayout.LayoutParams(
+                RelativeLayout.LayoutParams.MATCH_PARENT, // Width of TextView
+                RelativeLayout.LayoutParams.WRAP_CONTENT); // Height of TextView
+
+        // Apply the layout parameters to TextView widget
+        tv.setLayoutParams(lp);
+
+        // Set text to display in TextView
+        tv.setText(course.toString());
+
+        // Set the text color of TextView
+        tv.setTextColor(Color.WHITE);
+        tv.setTextSize(20.0f);
+        Typeface boldTypeface = Typeface.defaultFromStyle(Typeface.BOLD);
+
+        tv.setTypeface(boldTypeface);
+
+        // Set TextView text alignment to center
+        tv.setGravity(Gravity.CENTER);
+
+        // Set the ActionBar display option
+        ab.setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
+        ab.setCustomView(tv);
         data(course);
-        Name.setText(course);
     }
 
-    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     public void init(ArrayList<String> course) {
-        Typeface boldTypeface = Typeface.defaultFromStyle(Typeface.BOLD);
-        TableLayout stk = (TableLayout) findViewById(R.id.table_main);
-
-        stk.setElevation(3.0f);
-        Display display = getWindowManager().getDefaultDisplay();
-        int width = display.getWidth();
-        TableRow tbrow0 = new TableRow(this);
-        TextView tv0 = new TextView(this);
-
-        tv0.setText(" Sl.No ");
-        tv0.setWidth(width/7);
-        tv0.setTextColor(Color.WHITE);
-        tv0.setGravity(Gravity.CENTER);
-        tv0.setTypeface(boldTypeface);
-        tv0.setTextSize(13.0f);
-        tbrow0.addView(tv0);
-        TextView tv1 = new TextView(this);
-        tv1.setText(" Syllabus ");
-        tv1.setGravity(Gravity.CENTER);
-        tv1.setTypeface(boldTypeface);
-        tv1.setTextColor(Color.WHITE);
-        tv1.setWidth(width/100*30);
-        tv1.setTextSize(13.0f);
-        tv1.setPadding(2,2,2,10);
-        tv0.setPadding(2,2,2,10);
-
-        tbrow0.addView(tv1);
-        TextView tv2 = new TextView(this);
-
-        tv2.setText(" No. Of Questions ");
-        tv2.setGravity(Gravity.CENTER);
-        tv2.setWidth(width/4);
-        tv2.setTextColor(Color.WHITE);
-        tbrow0.addView(tv2);
-        tv2.setTypeface(boldTypeface);
-        tv2.setTextSize(13.0f);
-        tv2.setPadding(2,2,2,10);
-        TextView tv3 = new TextView(this);
-        tv3.setText(" Weight ");
-        tv3.setWidth(width/4+width*2/35);
-        tv3.setGravity(Gravity.CENTER);
-        tv3.setTextSize(13.0f);
-        tv3.setTextColor(Color.WHITE);
-        tv3.setTypeface(boldTypeface);
-        tv3.setPadding(2,2,2,10);
-        tbrow0.addView(tv3);
-        stk.addView(tbrow0);
-
-
         for (int i = 0; i < course.size(); i++) {
             String current=course.get(i);
             String[] separated = current.split(",");
             String name=separated[0];
             String questions=separated[1];
-            String wieght=separated[2];
-
-            TableRow tbrow = new TableRow(this);
-            TextView t1v = new TextView(this);
-            if (i % 2 == 0) {
-
-                tbrow.setBackgroundColor(Color.parseColor("#D3D3D3"));
-
-            } else {
-
-                tbrow.setBackgroundColor(Color.parseColor("#FFFFFF"));
-
-            }
-            t1v.setTextSize(16.0f);
-            t1v.setWidth(width/5);
-            t1v.setText(String.valueOf(i+1));
-            t1v.setTextColor(Color.BLACK);
-            t1v.setTextAlignment(View.TEXT_ALIGNMENT_CENTER);
-            t1v.setGravity(Gravity.CENTER);
-            t1v.setPadding(0,10,0,10);
-            tbrow.addView(t1v);
-            TextView t2v = new TextView(this);
-            t2v.setText(name);
-            t2v.setTextAlignment(View.TEXT_ALIGNMENT_CENTER);
-            t2v.setTextColor(Color.BLACK);
-            t2v.setTextSize(16.0f);
-            t2v.setWidth(width/4);
-            t2v.setPadding(0,10,0,10);
-            t2v.setGravity(Gravity.CENTER);
-            tbrow.addView(t2v);
-            TextView t3v = new TextView(this);
-            t3v.setText(questions);
-            t3v.setTextAlignment(View.TEXT_ALIGNMENT_CENTER);
-            t3v.setTextSize(16.0f);
-            t3v.setPadding(0,10,0,10);
-            t3v.setTextColor(Color.BLACK);
-            t3v.setWidth(width/4);
-            t3v.setGravity(Gravity.CENTER);
-            tbrow.addView(t3v);
-            TextView t4v = new TextView(this);
-            t4v.setText(wieght);
-            t4v.setWidth(width/100*30);
-t4v.setTextAlignment(View.TEXT_ALIGNMENT_CENTER);
-            t4v.setTextSize(16.0f);
-            t4v.setPadding(0,10,0,10);
-            t4v.setTextColor(Color.BLACK);
-            t4v.setGravity(Gravity.CENTER);
-            tbrow.addView(t4v);
-            stk.addView(tbrow,new TableLayout.LayoutParams(TableLayout.LayoutParams.MATCH_PARENT,0,1f));
+            labels.add(name);
+            bargroup1.add(new BarEntry(Integer.parseInt(questions), i));
+            yvalues.add(new Entry(Integer.parseInt(questions), i));
+            xVals.add(name);
         }
+        BarDataSet bardataset = new BarDataSet(bargroup1, "Number of Questions");
+        PieDataSet dataSet = new PieDataSet(yvalues, course.toString().trim());
 
+        PieData data = new PieData(xVals, dataSet);
+        dataSet.setColors(ColorTemplate.COLORFUL_COLORS);
+
+        data.setValueTextSize(10f);barChart.setDrawGridBackground(false);
+        data.setValueTextColor(Color.WHITE);
+        pieChart.setDrawHoleEnabled(false);
+        pieChart.setUsePercentValues(true);
+        data.setValueFormatter(new PercentFormatter());
+        pieChart.setData(data);
+        pieChart.invalidate();
+        bardataset.setColors(ColorTemplate.COLORFUL_COLORS);
+        pieChart.setOnChartValueSelectedListener(this);
+        BarData dataa = new BarData(labels, bardataset);
+        barChart.setData(dataa);
+        barChart.getAxisLeft().setDrawGridLines(false);
+        barChart.getAxisRight().setDrawGridLines(false);
+
+        barChart.animateXY(1400,1400);
+        barChart.setBackgroundColor(getResources().getColor(R.color.Light));
+        barChart.invalidate();
+        pieChart.animateXY(1400, 1400);
     }
+
 
    public void data(String course){
       final FirebaseDatabase database = FirebaseDatabase.getInstance();
       DatabaseReference ref = database.getReference("Syllabus");
        importPanel.setVisibility(View.GONE);
-       Table.setVisibility(View.VISIBLE);
+
       ref.orderByKey().equalTo(course).addChildEventListener(new ChildEventListener() {
           @Override
           public void onChildAdded(DataSnapshot dataSnapshot, String s) {
@@ -172,9 +160,9 @@ t4v.setTextAlignment(View.TEXT_ALIGNMENT_CENTER);
                   data.add(String.valueOf(dsp.getValue())); //add result into array list
 
               }
-              if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+
                   init(data);
-              }
+
 
           }
 
@@ -203,4 +191,18 @@ t4v.setTextAlignment(View.TEXT_ALIGNMENT_CENTER);
 
 
   }
+
+    @Override
+    public void onValueSelected(Entry e, int dataSetIndex, Highlight h) {
+        if (e == null)
+            return;
+        Log.i("VAL SELECTED",
+                "Value: " + e.getVal() + ", xIndex: " + e.getXIndex()
+                        + ", DataSet index: " + dataSetIndex);
+    }
+
+    @Override
+    public void onNothingSelected() {
+        Log.i("PieChart", "nothing selected");
+    }
 }

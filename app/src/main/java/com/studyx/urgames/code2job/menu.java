@@ -48,19 +48,12 @@ public class menu extends AppCompatActivity {
             window.setBackgroundDrawableResource(R.drawable.animationlist);
         }
         Formula = (ImageButton) findViewById(R.id.formula);
-        Vids = (ImageButton) findViewById(R.id.vid);
         Tips = (ImageButton) findViewById(R.id.tips);
         Syllabus = (ImageButton) findViewById(R.id.course);
         Premium=(ImageButton)findViewById(R.id.premium);
 
 
-        Vids.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent i = new Intent(view.getContext(), vid.class);
-                startActivity(i);
-            }
-        });
+
 
         Formula.setOnClickListener(new View.OnClickListener() {
             @Override

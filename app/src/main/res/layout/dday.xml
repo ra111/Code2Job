@@ -1,16 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
+<ScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:tools="http://schemas.android.com/tools">
+<LinearLayout
+android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
     android:background="@drawable/animationlist">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
+        android:id="@+id/time"
         android:layout_marginBottom="8dp"
         android:layout_marginRight="16dp"
         android:layout_marginTop="8dp"
@@ -19,10 +24,7 @@
         android:background="@drawable/dday_back"
         android:orientation="vertical"
         android:padding="10dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.076">
+   >
 
         <TextView
             android:id="@+id/textView2"
@@ -35,18 +37,16 @@
             android:textSize="24sp"
             android:textColor="#fff"
             android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.078" />
+            />
 
         <TextView
 
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:layout_marginTop="8dp"
             android:layout_gravity="center_horizontal"
-            android:text="♦ First item"
+            android:text="45-50 minutes for Quants"
             android:textColor="#fff"
             android:textSize="18dp" />
 
@@ -54,19 +54,24 @@
 
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:layout_marginTop="8dp"
             android:layout_gravity="center_horizontal"
-            android:text="♦ First item"
+            android:text="45-50 minutes for Reasoning "
             android:textColor="#fff"
             android:textSize="18dp" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:layout_marginTop="8dp"
             android:layout_gravity="center_horizontal"
-            android:text="♦ First item"
+            android:text="25-30 Minutes for English"
             android:textColor="#fff"
             android:textSize="18dp" />
     </LinearLayout>
+
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -78,10 +83,8 @@
         android:elevation="18dp"
         android:orientation="vertical"
         android:padding="10dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.739">
+        app:layout_constraintBottom_toBottomOf="@id/time"
+        app:layout_constraintVertical_bias="0.5">
 
         <TextView
             android:layout_width="wrap_content"
@@ -93,36 +96,47 @@
             android:textColor="#fff"
             android:textSize="24sp"
             android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.078" />
+          />
 
         <TextView
 
             android:layout_width="wrap_content"
+            android:layout_margin="10dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:text="♦ First item"
+            android:text="                           Reasoning \n \n \n
+1)Attempt Data Interpretation 4 questions take 20 minutes to solve \n \n \n
+2)Attempt Data Sufficiency  next  there are 4 questions you can easily attempt 2-3 questions take 20 minutes \n \n \n \n
+3)Attempt Crypto Arethmertic last \n \n  \n \n "
+
             android:textColor="#fff"
             android:textSize="18dp" />
 
         <TextView
-
-            android:layout_width="wrap_content"
+            android:layout_margin="10dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:text="♦ First item"
+            android:text="                              Quants \n \n \n
+1)Attempt the paper in three attempts \n \n \n \n
+2)Attempt the short questions first use only 3 minutes on each \n \n \n \n
+3)Bubble those which you think can be solved but are taking lot of time \n \n \n \n
+4)Attempt the long ones now taking 5 miniutes each \n \n \n \n
+5) Now Attempt the bubbles which you had marked earlier \n \n \n \n \n "
             android:textColor="#fff"
             android:textSize="18dp" />
 
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_margin="10dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:text="♦ First item"
+            android:text="                               English \n \n \n \
+1)English is the easiest of all sections \n \n \n \n
+2) Every option might seem correct attempt wisely \n \n \n \n \n
+3)First attempt the Reading Comprehension \n \n  \n \n \n"
             android:textColor="#fff"
             android:textSize="18dp" />
     </LinearLayout>
-</android.support.constraint.ConstraintLayout>
+</LinearLayout>
+</ScrollView>

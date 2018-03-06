@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="colorPrimary">#3F51B5</color>
+    <color name="primary">#fff</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
     <color name="table">#3d455b</color>
@@ -9,4 +10,5 @@
     <color name="dday_stroke">#b15b5b</color>
     <color name="grey">#e1e2e1</color>
     <color name="colorGrey">#e1e2e1</color>
+    <color name="Light">#e9e5e5</color>
 </resources>

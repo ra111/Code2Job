@@ -6,14 +6,16 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:gravity="center"
+    android:background="@drawable/animationlist"
 
     >
     <android.support.v7.widget.CardView
         android:id="@+id/card_view33"
         android:layout_width="329dp"
-        android:layout_height="83dp"
+        android:layout_height="113dp"
         android:clickable="true"
-        app:cardCornerRadius="4dp"
+        app:cardCornerRadius="8dp"
+        app:cardBackgroundColor="#858585"
         tools:ignore="MissingConstraints"
         tools:layout_editor_absoluteX="16dp"
         tools:layout_editor_absoluteY="59dp"
@@ -28,16 +30,18 @@
 
             <Button
                 android:id="@+id/shortcut"
+                android:onClick="onPremiumClicked"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:alpha="0" />
+                android:alpha="0"
+                android:textAlignment="center" />
             <ImageView
                 android:layout_width="100dp"
                 android:layout_height="match_parent"
                 android:scaleType="fitXY"
 
 
-                android:src="@drawable/shortcut"
+                android:src="@drawable/vid"
                 android:id="@+id/imageView34" />
 
 
@@ -45,12 +49,15 @@
                 android:id="@+id/textView34"
                 android:layout_width="179dp"
                 android:layout_height="wrap_content"
-                android:text="SHORTCUTS"
                 android:layout_centerVertical="true"
-                android:layout_toRightOf="@+id/imageView34"
-                android:layout_toEndOf="@+id/imageView34"
                 android:layout_marginLeft="35dp"
-                android:layout_marginStart="35dp" />
+                android:layout_marginStart="35dp"
+                android:layout_toEndOf="@+id/imageView34"
+                android:layout_toRightOf="@+id/imageView34"
+                android:text="VIDEOS"
+                android:textAlignment="center"
+                android:textColor="#fff"
+                android:textStyle="bold" />
         </RelativeLayout>
     </android.support.v7.widget.CardView>
 
@@ -58,9 +65,10 @@
     <android.support.v7.widget.CardView
         android:id="@+id/card_view34"
         android:layout_width="329dp"
-        android:layout_height="83dp"
+        android:layout_height="113dp"
         android:clickable="true"
-        app:cardCornerRadius="4dp"
+        app:cardCornerRadius="8dp"
+        app:cardBackgroundColor="#858585"
         tools:ignore="MissingConstraints"
         tools:layout_editor_absoluteX="16dp"
         tools:layout_editor_absoluteY="59dp"
@@ -77,11 +85,13 @@
                 android:id="@+id/premium_tips"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:alpha="0" />
+                android:alpha="0"
+                android:textAlignment="center" />
             <ImageView
                 android:layout_width="100dp"
                 android:layout_height="match_parent"
                 android:scaleType="fitXY"
+                android:background="#fff"
                 android:src="@drawable/tipsp"
                 android:id="@+id/imageView35" />
 
@@ -90,12 +100,16 @@
                 android:id="@+id/textView35"
                 android:layout_width="179dp"
                 android:layout_height="wrap_content"
-                android:text="TIPS"
                 android:layout_centerVertical="true"
-                android:layout_toRightOf="@+id/imageView35"
-                android:layout_toEndOf="@+id/imageView35"
                 android:layout_marginLeft="35dp"
-                android:layout_marginStart="35dp" />
+
+                android:layout_marginStart="35dp"
+                android:layout_toEndOf="@+id/imageView35"
+                android:layout_toRightOf="@+id/imageView35"
+                android:text="SAMPLE PAPER"
+                android:textAlignment="center"
+                android:textColor="#fff"
+                android:textStyle="bold" />
         </RelativeLayout>
     </android.support.v7.widget.CardView>
 
@@ -103,6 +117,7 @@
         android:id="@+id/card_view35"
         android:layout_width="329dp"
         android:layout_height="83dp"
+        android:visibility="gone"
         android:clickable="true"
         app:cardCornerRadius="4dp"
         tools:ignore="MissingConstraints"
@@ -120,7 +135,8 @@
                 android:id="@+id/ask_question"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:alpha="0" />
+                android:alpha="0"
+                />
             <ImageView
                 android:layout_width="100dp"
                 android:layout_height="match_parent"

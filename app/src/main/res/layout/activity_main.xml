@@ -18,9 +18,15 @@
         android:text="Elitmus A-z"
         android:textColor="@color/grey"
         android:textAppearance="@style/TextAppearance.AppCompat.Title" />
-
+    <ViewStub
+        android:id="@+id/stub_import"
+        android:inflatedId="@+id/panel_import"
+        android:layout="@layout/progress_overlay"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_gravity="center" />
     <LinearLayout
-
+android:id="@+id/signIn"
         android:layout_width="match_parent"
         android:orientation="horizontal"
 
