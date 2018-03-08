@@ -43,11 +43,15 @@
         <activity android:name=".Faq"
             android:screenOrientation="portrait"/>
         <activity android:name=".dday"
-            android:theme="@android:style/Theme.NoTitleBar"
+
             android:screenOrientation="portrait"/>
         <activity android:name=".imp_topics"
             android:theme="@android:style/Theme.NoTitleBar"
             android:screenOrientation="portrait"/>
+
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
     </application>
 
     <uses-permission android:name="android.permission.INTERNET" />

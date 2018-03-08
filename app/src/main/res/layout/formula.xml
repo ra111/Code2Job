@@ -287,8 +287,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="16dp"
                 android:text="GEOMETRY"
-app:layout_constraintBottom_toBottomOf="@id/formula23"
+app:layout_constraintBottom_toTopOf="@id/formula22"
                 app:layout_constraintTop_toTopOf="@id/formula22"
+                android:layout_margin="10dp"
                 android:textAlignment="center"
 
                 app:layout_constraintHorizontal_bias="0.0"
@@ -299,8 +300,9 @@ app:layout_constraintBottom_toBottomOf="@id/formula23"
             <katex.hourglass.in.mathlib.MathView
                 android:id="@+id/formula22"
                 android:layout_width="335dp"
-                android:layout_height="100dp"
+                android:layout_height="120dp"
                 android:background="#fff"
+                android:layout_marginTop="20dp"
                 android:layout_marginBottom="128dp"
                 android:textColor="#fff"
                 app:layout_constraintBottom_toBottomOf="@id/formula21"
@@ -309,22 +311,7 @@ app:layout_constraintBottom_toBottomOf="@id/formula23"
                 app:layout_constraintRight_toRightOf="parent"
               ></katex.hourglass.in.mathlib.MathView>
 
-            <katex.hourglass.in.mathlib.MathView
-                android:id="@+id/formula23"
-                android:layout_width="335dp"
-                app:setTextColor="@color/primary"
-                android:layout_height="101dp"
-                android:layout_marginBottom="128dp"
-                android:textColor="#fff"
-                android:background="#fff"
-                android:layout_marginTop="10dp"
-                app:setTextSize="12dp"
-android:textAlignment="center"
-                app:layout_constraintBottom_toBottomOf="@id/formula22"
-                app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toRightOf="parent"
-                ></katex.hourglass.in.mathlib.MathView>
+
 
 
 

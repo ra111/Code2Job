@@ -55,9 +55,9 @@ public class Formula extends AppCompatActivity {
     String form20 = "<div style=\"text-align:center;margin:10px;\">The number of ways of dividing (p + q) items into two groups containing p and q items respectively is</div>" + "<div style=\"text-align:center;margin:10px;\">\\(\\frac{(p+q)!}{p!q!}\\)</div>";
     String form21 = "<div style=\"text-align:center;margin:10px;\">The number of ways of dividing 2p items into two equal groups of p each is</div>" + "\\(\\frac{(2p)!}{(p!)^2}\\)" + ",when the two groups have distinct identity and" + "<div style=\"text-align:center;margin:10px;\">\\(\\frac{(2p)!}{2!(p!)^2}\\)</div>" +
             "when the two groups do not have distinct identity";
-    String form22 = "<div style=\"text-align:center;margin:10px;\">\\(nCr = nCn– r\\)</div>";
+    String form22 = "<div style=\"text-align:center;margin:10px;\">nCr = nCn– r</div>";
     String form23 = "<div style=\"text-align:center;margin:10px;\">Sum of squares of first n natural number =</div>" + "<div style=\"text-align:center;margin:10px;\">\\(\\frac{n(n+1)(2n+1)}{6}\\)</div>";
-    String form24 = " <div style=\"text-align:center;margin:10px;\">Sum of cubes of first n natural numbers =</div>" + "<div style=\"text-align:center;margin:10px;\">\\({\\(frac{n(n+1)}{2}})^2\\)</div>";
+    String form24 = " <div style=\"text-align:center;margin:10px;\">Sum of cubes of first n natural numbers =</div>" + "<div style=\"text-align:center;margin:10px;\">\\(\\frac{n(n+1)}{2}^2\\)</div>";
     String form25 = "<div style=\"text-align:center;margin:10px;\">Sum of first n natural numbers =</div>" + "<div style=\"text-align:center;margin:10px;\">\\(\\frac{n(n+1)}{2}\\)</div>";
     String form26 = "  <div style=\"text-align:center;margin:10px;\">\\((G.M)^2 = (A.M) (H.M)\\)</div>";
 
@@ -143,8 +143,8 @@ public class Formula extends AppCompatActivity {
         formula20 = (katex.hourglass.in.mathlib.MathView) findViewById(R.id.formula20);
         formula21 = (katex.hourglass.in.mathlib.MathView) findViewById(R.id.formula21);
         formula22 = (katex.hourglass.in.mathlib.MathView) findViewById(R.id.formula22);
-        formula23 = (katex.hourglass.in.mathlib.MathView) findViewById(R.id.formula23);
-formula3.setDisplayText(form1);
+     //   formula23 = (katex.hourglass.in.mathlib.MathView) findViewById(R.id.formula23);
+formula3.setDisplayText(form24);
 formula_two.setDisplayText(form22);
         formula4.setDisplayText(form2);
         formula5.setDisplayText(form3);
@@ -165,7 +165,7 @@ formula_two.setDisplayText(form22);
         formula20.setDisplayText(form18);
         formula21.setDisplayText(form19);
         formula22.setDisplayText(form20);
-        formula23.setDisplayText(form21);
+    //    formula23.setDisplayText(form21);
         Formula_layout.setVisibility(View.VISIBLE);
         importPanel.setVisibility(View.GONE);
 

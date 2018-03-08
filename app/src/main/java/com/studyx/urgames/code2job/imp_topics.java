@@ -23,6 +23,12 @@ import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FileDownloadTask;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
@@ -59,7 +65,10 @@ public class imp_topics extends Activity implements ActivityCompat.OnRequestPerm
     PointF start = new PointF();
     PointF mid = new PointF();
     float oldDist = 1f;
+    final FirebaseDatabase database = FirebaseDatabase.getInstance();
 
+    final DatabaseReference mDatabase = database.getReference();
+    DatabaseReference current_ref = mDatabase.child("users").child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("freemium");
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.imp_topic);
@@ -74,16 +83,55 @@ public class imp_topics extends Activity implements ActivityCompat.OnRequestPerm
             @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
             @Override
             public void onClick(View view) {
-               showPage(currentPage.getIndex() - 1);
-            }
+            //
+                DatabaseReference current_ref = mDatabase.child("users").child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("freemium");
+                current_ref.addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(DataSnapshot dataSnapshot) {
+                      String  current = dataSnapshot.getValue(String.class);
+                        int prev=Integer.parseInt(current)-1;
+                        mDatabase.child("users").child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("freemium").setValue(Integer.toString(prev));
+                        showPage(prev);
+
+
+                    }
+
+                    @Override
+                    public void onCancelled(DatabaseError databaseError) {
+
+                    }
+                });
+
+            };
+
+
+
         });
+
+
         btnNext.setOnClickListener(new View.OnClickListener() {
             @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
             @Override
             public void onClick(View view) {
-              showPage(currentPage.getIndex() +1);
-            }
-        });
+                DatabaseReference current_ref = mDatabase.child("users").child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("freemium");
+                current_ref.addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(DataSnapshot dataSnapshot) {
+                        String current = dataSnapshot.getValue(String.class);
+                        int next = Integer.parseInt(current) + 1;
+
+                        showPage(next);
+                        mDatabase.child("users").child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("freemium").setValue(Integer.toString(next));
+                    }
+
+                    @Override
+                    public void onCancelled(DatabaseError databaseError) {
+
+                    }
+                });
+            }});
+
+
     }
 
     @Override
@@ -142,16 +190,7 @@ public class imp_topics extends Activity implements ActivityCompat.OnRequestPerm
         });
 
     }
-    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
-    @Override
-    public void onDestroy() {
-        try {
-            closeRenderer();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        super.onDestroy();
-    }
+
 
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     public void read(File localFile) {
@@ -171,18 +210,22 @@ public class imp_topics extends Activity implements ActivityCompat.OnRequestPerm
         } catch (IOException e) {
             e.printStackTrace();
         }
-        //Display page 0
-        showPage(i);
+        current_ref.addListenerForSingleValueEvent(new ValueEventListener() {
+            @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                String   current = dataSnapshot.getValue(String.class);
+
+                showPage(Integer.parseInt(current));
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
 
 
-    }
-    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
-    private void closeRenderer() throws IOException {
-        if (null != currentPage) {
-            currentPage.close();
-        }
-
-        pdfRenderer.close();
 
     }
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)

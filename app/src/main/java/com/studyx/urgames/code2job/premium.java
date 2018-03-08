@@ -24,8 +24,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.android.vending.billing.IInAppBillingService;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.auth.FirebaseAuth;
 
 
 /**
@@ -38,12 +37,11 @@ public class premium extends AppCompatActivity   implements IabBroadcastReceiver
     String TAG="THIS";
     TextView tv;
     static final int RC_REQUEST = 10001;
+
     IabHelper mHelper;boolean mIsPremium = false;
+    String payload= FirebaseAuth.getInstance().getCurrentUser().getEmail();
     static final String SKU_PREMIUM = "saved_paper";
     IabBroadcastReceiver mBroadcastReceiver;
-    final FirebaseDatabase database = FirebaseDatabase.getInstance();
-    final DatabaseReference mDatabase = database.getReference();
-
     IInAppBillingService mService;
     String base64EncodedPublicKey="MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAlXdN0bN8VsFYNRT+KtczkL6M7egft3fljFAhYuCLktM/ZIRNNNS/LwB4erZnijDIZqVJUqrSfPFNxsnYcxJaVfRgJ+Eiqxqv2C3fXRNzDTbrAQOA6vJJCLxtH2B+UF5IEPEjjR0EnJIUpYbb00QqjVlfzjbwmJEiQ3WituX/IX14tYGEzNh4eZbpyeain7OUgf/x+LFMDznjSCk81anGUPplD343wXTxiSopfsJb1X/96Lw1in0H+Zfsd0MWaAYUJ5pVWZckbaVroiua3ApCVaMfz51iXZGKRIxXwexV9I3RHTGAXPlHA2MAu6k8ZUBuOB6eGV0AdPillEm9JfPGeQIDAQAB";
     public void onCreate(Bundle savedInstanceState) {
@@ -75,18 +73,18 @@ public class premium extends AppCompatActivity   implements IabBroadcastReceiver
         /* TODO: for security, generate your payload here for verification. See the comments on
          *        verifyDeveloperPayload() for more info. Since this is a SAMPLE, we just use
          *        an empty string, but on a production app you should carefully generate this. */
-                String payload = "";
 
-                if (mIsPremium) {
+
+                if (!mIsPremium) {
                     try {
                         mHelper.launchPurchaseFlow(premium.this, SKU_PREMIUM, RC_REQUEST,
-                                mPurchaseFinishedListener);
+                                mPurchaseFinishedListener,payload);
                     } catch (IabHelper.IabAsyncInProgressException e) {
                         complain("Error launching purchase flow. Another async operation in progress.");
                         setWaitScreen(false);
                     }
                 }
-                else if(!mIsPremium)
+                else if(mIsPremium)
 
                 {
                     Intent i = new Intent(view.getContext(), vid.class);
@@ -173,6 +171,7 @@ public class premium extends AppCompatActivity   implements IabBroadcastReceiver
         // Finally, set the newly created TextView as ActionBar custom view
         ab.setCustomView(tv);
     }
+
     ServiceConnection mServiceConn = new ServiceConnection() {
         @Override
         public void onServiceDisconnected(ComponentName name) {
@@ -250,8 +249,9 @@ public class premium extends AppCompatActivity   implements IabBroadcastReceiver
         }
     };
         boolean verifyDeveloperPayload(Purchase p) {
-            String payload = p.getDeveloperPayload();
-
+            String payload_return = p.getDeveloperPayload();
+Log.d("Payload",payload);
+            boolean resultOfComparison=payload_return.equals(payload);
         /*
          * TODO: verify that the developer payload of the purchase is correct. It will be
          * the same one that you sent when initiating the purchase.
@@ -275,7 +275,7 @@ public class premium extends AppCompatActivity   implements IabBroadcastReceiver
          * installations is recommended.
          */
 
-            return true;
+            return resultOfComparison;
         }
 
         void complain(String message) {

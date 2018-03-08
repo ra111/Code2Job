@@ -156,7 +156,8 @@ public class MainActivity extends Activity {
 
                             startActivity(menu);
                         } else {
-
+                            importPanel.setVisibility(View.GONE);
+                            button.setVisibility(View.VISIBLE);
                             Toast.makeText(getApplicationContext(), "Authentication failed.",
                                     Toast.LENGTH_SHORT).show();
 
