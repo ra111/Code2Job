@@ -108,7 +108,6 @@
             android:id="@+id/view4" />
 
         <ImageView
-            android:id="@+id/imageView6"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignBottom="@+id/previous"
@@ -117,7 +116,6 @@
             android:src="@android:drawable/ic_media_next" />
 
         <ImageView
-            android:id="@+id/imageView7"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"

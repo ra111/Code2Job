@@ -9,19 +9,19 @@
     android:background="@drawable/animationlist"
 
     >
+
     <android.support.v7.widget.CardView
-        android:id="@+id/card_view33"
         android:layout_width="329dp"
-        android:layout_height="113dp"
+        android:layout_height="83dp"
+        android:layout_below="@+id/card_view12"
+        android:layout_centerHorizontal="true"
+        android:layout_margin="40px"
         android:clickable="true"
-        app:cardCornerRadius="8dp"
         app:cardBackgroundColor="#858585"
+        app:cardCornerRadius="8dp"
         tools:ignore="MissingConstraints"
         tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="59dp"
-        android:layout_margin="40px"
-        android:layout_below="@+id/card_view12"
-        android:layout_centerHorizontal="true">
+        tools:layout_editor_absoluteY="59dp">
 
 
         <RelativeLayout
@@ -30,23 +30,23 @@
 
             <Button
                 android:id="@+id/shortcut"
-                android:onClick="onPremiumClicked"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:alpha="0"
+                android:onClick="onPremiumClicked"
                 android:textAlignment="center" />
+
             <ImageView
+                android:id="@+id/imageView34"
                 android:layout_width="100dp"
                 android:layout_height="match_parent"
+
+
                 android:scaleType="fitXY"
-
-
-                android:src="@drawable/vid"
-                android:id="@+id/imageView34" />
+                android:src="@drawable/vid" />
 
 
             <TextView
-                android:id="@+id/textView34"
                 android:layout_width="179dp"
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
@@ -54,7 +54,7 @@
                 android:layout_marginStart="35dp"
                 android:layout_toEndOf="@+id/imageView34"
                 android:layout_toRightOf="@+id/imageView34"
-                android:text="VIDEOS"
+                android:text="Section wise Questions "
                 android:textAlignment="center"
                 android:textColor="#fff"
                 android:textStyle="bold" />
@@ -63,18 +63,17 @@
 
 
     <android.support.v7.widget.CardView
-        android:id="@+id/card_view34"
         android:layout_width="329dp"
-        android:layout_height="113dp"
+        android:layout_height="83dp"
+        android:layout_below="@+id/card_view12"
+        android:layout_centerHorizontal="true"
+        android:layout_margin="40px"
         android:clickable="true"
-        app:cardCornerRadius="8dp"
         app:cardBackgroundColor="#858585"
+        app:cardCornerRadius="8dp"
         tools:ignore="MissingConstraints"
         tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="59dp"
-        android:layout_margin="40px"
-        android:layout_below="@+id/card_view12"
-        android:layout_centerHorizontal="true">
+        tools:layout_editor_absoluteY="59dp">
 
 
         <RelativeLayout
@@ -87,17 +86,17 @@
                 android:layout_height="match_parent"
                 android:alpha="0"
                 android:textAlignment="center" />
+
             <ImageView
+                android:id="@+id/imageView35"
                 android:layout_width="100dp"
                 android:layout_height="match_parent"
-                android:scaleType="fitXY"
                 android:background="#fff"
-                android:src="@drawable/tipsp"
-                android:id="@+id/imageView35" />
+                android:scaleType="fitXY"
+                android:src="@drawable/tipsp" />
 
 
             <TextView
-                android:id="@+id/textView35"
                 android:layout_width="179dp"
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
@@ -106,7 +105,7 @@
                 android:layout_marginStart="35dp"
                 android:layout_toEndOf="@+id/imageView35"
                 android:layout_toRightOf="@+id/imageView35"
-                android:text="SAMPLE PAPER"
+                android:text="Full Mock PAPER"
                 android:textAlignment="center"
                 android:textColor="#fff"
                 android:textStyle="bold" />
@@ -114,12 +113,11 @@
     </android.support.v7.widget.CardView>
 
     <android.support.v7.widget.CardView
-        android:id="@+id/card_view35"
         android:layout_width="329dp"
         android:layout_height="83dp"
-        android:visibility="gone"
         android:clickable="true"
         app:cardCornerRadius="4dp"
+        app:cardBackgroundColor="#858585"
         tools:ignore="MissingConstraints"
         tools:layout_editor_absoluteX="16dp"
         tools:layout_editor_absoluteY="59dp"
@@ -142,21 +140,24 @@
                 android:layout_height="match_parent"
                 android:scaleType="fitXY"
 
-
+android:background="#fff"
                 android:src="@drawable/ask"
                 android:id="@+id/imageView36" />
 
 
             <TextView
-                android:id="@+id/textView36"
                 android:layout_width="179dp"
                 android:layout_height="wrap_content"
-                android:text="ASK A QUESTION"
                 android:layout_centerVertical="true"
-                android:layout_toRightOf="@+id/imageView36"
-                android:layout_toEndOf="@+id/imageView36"
                 android:layout_marginLeft="35dp"
-                android:layout_marginStart="35dp" />
+                android:layout_marginStart="35dp"
+                android:layout_toEndOf="@+id/imageView36"
+                android:layout_toRightOf="@+id/imageView36"
+                android:fontFamily="@font/roboto_bold"
+                android:text="Sample Paper"
+                android:textAlignment="center"
+                android:textColor="#fff"
+                android:textStyle="bold" />
         </RelativeLayout>
     </android.support.v7.widget.CardView>
 </LinearLayout>

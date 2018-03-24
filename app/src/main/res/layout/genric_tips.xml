@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:tools="http://schemas.android.com/tools">
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/animationlist">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:id="@+id/time"
+        android:layout_marginBottom="8dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginTop="8dp"
+        android:elevation="18dp"
+
+        android:background="@drawable/dday_back"
+        android:orientation="vertical"
+        android:padding="10dp"
+        >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="18dp"
+            android:layout_marginTop="18dp"
+            android:fontFamily="@font/roboto_bold"
+            android:text="How many questions to attempt?"
+            android:textColor="#fff"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+        <TextView
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="18dp"
+            android:layout_marginTop="18dp"
+            android:fontFamily="@font/roboto"
+            android:text="Quant : 8-9 questions are  score-able, attempt minimum 5 questions. (20 Marks)"
+            android:textColor="#fff"
+            android:textSize="14sp" />
+
+        <TextView
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="18dp"
+            android:layout_marginTop="18dp"
+            android:fontFamily="@font/roboto"
+            android:text="Verbal ability:9-11 question are score-able ,attempt minimum of One reading comprehension passage (40 Marks) and 4-5 fill in the blanks questions (30 Marks)"
+            android:textColor="#fff"
+            android:textSize="14sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="18dp"
+            android:layout_marginTop="18dp"
+            android:fontFamily="@font/roboto"
+            android:text="Problem Solving:6-8 questions are score-able Arrangement Question will fetch you straight 5 answers correct (40 Marks),Three questions for crypt arithmetic ( 30 Marks)"
+            android:textColor="#fff"
+            android:textSize="14sp" />
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:layout_marginBottom="18dp"
+        android:layout_marginTop="18dp"
+        android:background="@drawable/dday_back"
+        android:elevation="18dp"
+        android:orientation="vertical"
+        android:padding="10dp"
+        app:layout_constraintBottom_toBottomOf="@id/time"
+        app:layout_constraintVertical_bias="0.5">
+
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="18dp"
+            android:layout_marginTop="18dp"
+            android:fontFamily="@font/roboto_bold"
+            android:text="Books to refer "
+            android:textColor="#fff"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <TextView
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="18dp"
+            android:layout_marginTop="18dp"
+            android:fontFamily="@font/roboto"
+            android:text="How to Prepare for Quantitative Aptitude for CAT by Arun Sharma"
+            android:textColor="#fff"
+            android:textSize="14sp" />
+
+        <TextView
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="18dp"
+            android:layout_marginTop="18dp"
+            android:fontFamily="@font/roboto"
+            android:text="Logical Reasoning by Arun Sharma.It defines the concepts so clearly that every one can easily understand
+whether they are expert or beginners. The set of questions are so much
+to practice  "
+            android:textColor="#fff"
+            android:textSize="14sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="18dp"
+            android:layout_marginTop="18dp"
+            android:fontFamily="@font/roboto"
+            android:text="How to Prepare for Verbal Ability and Reading Comprehension  for English"
+            android:textColor="#fff"
+            android:textSize="14sp" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="18dp"
+            android:layout_marginTop="18dp"
+            android:fontFamily="@font/roboto"
+            android:text=" You can/should practice till LOD 2 if you desire to score more than 90+ percentile in each section (else LOD 1 is enough for 80+ percentile)."
+            android:textColor="#fff"
+            android:textSize="14sp" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginTop="8dp"
+        android:elevation="18dp"
+
+        android:background="@drawable/dday_back"
+        android:orientation="vertical"
+        android:padding="10dp"
+        >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="8dp"
+            android:layout_marginTop="8dp"
+            android:fontFamily="@font/roboto_bold"
+            android:text="Marking Scheme"
+            android:textColor="#fff"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+        <TextView
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="8dp"
+            android:layout_marginTop="8dp"
+            android:fontFamily="@font/roboto"
+            android:text="
+            There are total 60 questions and 600 marks(each question carrying 10 marks) 20 questions for each section. \n \n \nNo negative marking if the total number of incorrect questions is less than or equal to 25% of the total number of questions.\n \n \n
+5 marks will be deducted out of 10 marks for every wrong answer after 25% window.\n \n \n
+No negative marks for unattempted questions.\n \n \n"
+            android:textColor="#fff"
+            android:textSize="14sp" />
+
+    </LinearLayout>
+
+    </LinearLayout>
+</ScrollView>

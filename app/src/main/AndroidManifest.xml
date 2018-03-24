@@ -4,6 +4,7 @@
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -12,6 +13,18 @@
         android:supportsRtl="true"
 
         android:theme="@style/AppTheme">
+        <service
+            android:name="com.studyx.urgames.code2job.MyFirebaseMessagingService">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+            </intent-filter>
+        </service>
+        <service
+            android:name="com.studyx.urgames.code2job.MyFirebaseInstanceIdService">
+            <intent-filter>
+                <action android:name="com.google.firebase.INSTANCE_ID_EVENT"/>
+            </intent-filter>
+        </service>
         <activity android:name=".menu"
             android:screenOrientation="portrait"/>
         <activity android:name=".MainActivity"
@@ -29,6 +42,8 @@
             android:screenOrientation="portrait"/>
         <activity android:name=".vid"
             android:screenOrientation="portrait"/>
+        <activity android:name=".sample_paper"
+            android:screenOrientation="portrait"/>
         <activity android:name=".Formula"
 
             android:screenOrientation="portrait"/>
@@ -43,6 +58,18 @@
         <activity android:name=".Faq"
             android:screenOrientation="portrait"/>
         <activity android:name=".dday"
+
+            android:screenOrientation="portrait"/>
+        <activity android:name=".importaant_tips"
+
+            android:screenOrientation="portrait"/>
+        <activity android:name=".section"
+            android:theme="@android:style/Theme.NoTitleBar"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".quant"
+
+            android:screenOrientation="portrait"/>
+        <activity android:name=".verbal"
 
             android:screenOrientation="portrait"/>
         <activity android:name=".imp_topics"
