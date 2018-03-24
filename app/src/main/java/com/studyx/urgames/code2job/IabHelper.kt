@@ -620,7 +620,8 @@ class IabHelper
         flagStartAsync("refresh inventory")
         Thread(Runnable {
             var result = IabResult(BILLING_RESPONSE_RESULT_OK, "Inventory refresh successful.")
-            var inv: Inventory? = null
+            var inv: Inventory? =null
+
             try {
                 inv = queryInventory(querySkuDetails, moreItemSkus, moreSubsSkus)
             } catch (ex: IabException) {
@@ -630,6 +631,7 @@ class IabHelper
             flagEndAsync()
 
             val result_f = result
+
             val inv_f = inv
             if (!mDisposed && listener != null) {
                 handler.post { listener.onQueryInventoryFinished(result_f, inv_f) }
@@ -829,7 +831,7 @@ class IabHelper
         var continueToken: String? = null
 
         do {
-            logDebug("Calling getPurchases with continuation token: " + continueToken!!)
+            logDebug("Calling getPurchases with continuation token: " + continueToken)
             val ownedItems = mService!!.getPurchases(3, mContext!!.packageName,
                     itemType, continueToken)
 
@@ -877,7 +879,7 @@ class IabHelper
             }
 
             continueToken = ownedItems.getString(INAPP_CONTINUATION_TOKEN)
-            logDebug("Continuation token: " + continueToken!!)
+            logDebug("Continuation token: " + continueToken)
         } while (!TextUtils.isEmpty(continueToken))
 
         return if (verificationFailed) IABHELPER_VERIFICATION_FAILED else BILLING_RESPONSE_RESULT_OK

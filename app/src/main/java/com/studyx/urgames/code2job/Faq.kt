@@ -11,25 +11,16 @@ import android.support.v7.app.AppCompatActivity
 import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
-import android.view.Window
 import android.view.WindowManager
-import android.widget.AdapterView
-import android.widget.ArrayAdapter
-import android.widget.Button
-import android.widget.LinearLayout
-import android.widget.ListView
-import android.widget.PopupWindow
-import android.widget.RelativeLayout
-import android.widget.TextView
-
+import android.widget.*
 import com.studyx.urgames.code2job.ques.Companion.answers
 import com.studyx.urgames.code2job.ques.Companion.questions
 
 /**
  * Created by rahula on 15/01/18.
  */
-abstract class Faq : AppCompatActivity() {
-    internal abstract var tv: TextView
+ class Faq : AppCompatActivity() {
+    internal lateinit var tv: TextView
     public override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.faq)

@@ -27,7 +27,7 @@ import com.google.android.gms.ads.MobileAds
 
 class menu : AppCompatActivity() {
     protected var mDrawerLayout: DrawerLayout? = null
-    private var Formula: ImageButton? = null
+    private var formula: ImageButton? = null
     private val Vids: ImageButton? = null
     private var Tips: ImageButton? = null
     private var Syllabus: ImageButton? = null
@@ -51,7 +51,7 @@ class menu : AppCompatActivity() {
 
             window.setBackgroundDrawableResource(R.drawable.animationlist)
         }
-        Formula = findViewById<View>(R.id.formula) as ImageButton
+        formula = findViewById<View>(R.id.formula) as ImageButton
         Tips = findViewById<View>(R.id.tips) as ImageButton
         Syllabus = findViewById<View>(R.id.course) as ImageButton
         Premium = findViewById<View>(R.id.premium) as ImageButton
@@ -66,8 +66,8 @@ class menu : AppCompatActivity() {
 
         }
 
-        Formula!!.setOnClickListener { view ->
-            val i = Intent(view.context, Formula!!::class.java)
+        formula!!.setOnClickListener { view ->
+            val i = Intent(view.context, Formula::class.java)
             if (mInterstitialAd!!.isLoaded) {
                 mInterstitialAd!!.show()
                 startActivity(i)

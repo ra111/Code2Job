@@ -28,13 +28,13 @@ import com.google.firebase.database.*
  * Created by rahula on 09/11/17.
  */
 
-abstract class MainActivity : Activity() {
+ class MainActivity : Activity() {
     private var mAuth: FirebaseAuth? = null
     private var mGoogleSignInClient: GoogleSignInClient? = null
     private var google_signIn: SignInButton? = null
     private var mDatabase: DatabaseReference? = null
-    internal  abstract  var button: LinearLayout
-    internal abstract var importPanel: View
+    internal  lateinit  var button: LinearLayout
+    internal lateinit var importPanel: View
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)

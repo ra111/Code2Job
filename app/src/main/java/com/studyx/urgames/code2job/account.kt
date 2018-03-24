@@ -23,9 +23,9 @@ import com.squareup.picasso.Picasso
  * Created by rahula on 14/11/17.
  */
 
-abstract class account : AppCompatActivity() {
+ class account : AppCompatActivity() {
     private var image: ImageView? = null
-    internal abstract var tv: TextView
+    internal lateinit var tv: TextView
     private var name: TextView? = null
     private var email: TextView? = null
     private val city: TextView? = null
